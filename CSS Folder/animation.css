@@ -1,0 +1,8 @@
+button:hover {
+    background-color: #3e8e41;
+}
+
+.reservation_row:hover {
+    background-color: #f2f2f2; /* Light gray hover color */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
