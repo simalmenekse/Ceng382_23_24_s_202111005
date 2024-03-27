@@ -1,0 +1,15 @@
+C:\University\CENG 328 - Web Development\Ceng_323_23_24_s_202111005\RazorPages\bin\Debug\net8.0\RazorPages.exe
+C:\University\CENG 328 - Web Development\Ceng_323_23_24_s_202111005\RazorPages\bin\Debug\net8.0\RazorPages.deps.json
+C:\University\CENG 328 - Web Development\Ceng_323_23_24_s_202111005\RazorPages\bin\Debug\net8.0\RazorPages.runtimeconfig.json
+C:\University\CENG 328 - Web Development\Ceng_323_23_24_s_202111005\RazorPages\bin\Debug\net8.0\RazorPages.dll
+C:\University\CENG 328 - Web Development\Ceng_323_23_24_s_202111005\RazorPages\bin\Debug\net8.0\RazorPages.pdb
+C:\University\CENG 328 - Web Development\Ceng_323_23_24_s_202111005\RazorPages\obj\Debug\net8.0\RazorPages.GeneratedMSBuildEditorConfig.editorconfig
+C:\University\CENG 328 - Web Development\Ceng_323_23_24_s_202111005\RazorPages\obj\Debug\net8.0\RazorPages.AssemblyInfoInputs.cache
+C:\University\CENG 328 - Web Development\Ceng_323_23_24_s_202111005\RazorPages\obj\Debug\net8.0\RazorPages.AssemblyInfo.cs
+C:\University\CENG 328 - Web Development\Ceng_323_23_24_s_202111005\RazorPages\obj\Debug\net8.0\RazorPages.csproj.CoreCompileInputs.cache
+C:\University\CENG 328 - Web Development\Ceng_323_23_24_s_202111005\RazorPages\obj\Debug\net8.0\RazorPages.sourcelink.json
+C:\University\CENG 328 - Web Development\Ceng_323_23_24_s_202111005\RazorPages\obj\Debug\net8.0\RazorPages.dll
+C:\University\CENG 328 - Web Development\Ceng_323_23_24_s_202111005\RazorPages\obj\Debug\net8.0\refint\RazorPages.dll
+C:\University\CENG 328 - Web Development\Ceng_323_23_24_s_202111005\RazorPages\obj\Debug\net8.0\RazorPages.pdb
+C:\University\CENG 328 - Web Development\Ceng_323_23_24_s_202111005\RazorPages\obj\Debug\net8.0\RazorPages.genruntimeconfig.cache
+C:\University\CENG 328 - Web Development\Ceng_323_23_24_s_202111005\RazorPages\obj\Debug\net8.0\ref\RazorPages.dll
