@@ -30,12 +30,11 @@ class Program
         const string roomDataFilePath = "Data.json";
         const string logDataFilePath = "LogData.json";
 
-        var roomHandler = new RoomHandler(roomDataFilePath);
-        var reservationRepository = new ReservationRepository();
-        var logger = new FileLogger(logDataFilePath);
-        var logHandler = new LogHandler(logger);
-        var reservationHandler = new ReservationHandler(reservationRepository, roomHandler, logHandler);
-        var reservationService = new ReservationService(reservationHandler, logHandler, roomHandler);
+        var factory = new Factory(roomDataFilePath, logDataFilePath);
+
+        var reservationService = factory.CreateReservationService();
+        var roomHandler = factory.CreateRoomHandler();
+        var reservationHandler = factory.CreateReservationHandler();
 
         bool continueApp = true;
         while (continueApp)
@@ -69,7 +68,7 @@ class Program
                     var rooms = roomHandler.GetRooms();
                     try
                     {
-                        reservationHandler.ShowAvailableRooms(rooms);
+                        reservationHandler.ShowRoomCapacities(rooms);
                     }
                     catch (JsonException ex)
                     {

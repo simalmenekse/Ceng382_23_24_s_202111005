@@ -36,8 +36,6 @@ public class ReservationRepository : IReservationRepository
         return false;
     }
 }
-
-
     public List<Reservation> GetAllReservations()
     {
         return _reservations.ToList(); // Return a copy of the list

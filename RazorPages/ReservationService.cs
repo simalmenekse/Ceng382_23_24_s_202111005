@@ -18,17 +18,16 @@ public class ReservationService : IReservationService
         if (_reservationHandler.AddReservation(reservation, reserverName, chosenDateTime))
         {
             Console.WriteLine("\nReservation added successfully.\n");
-            return true; // Return true to indicate successful addition
+            return true; // Return true to indicate successful 
         }
         else
         {
-            return false; // Return false if reservation addition fails
+            return false; // if reservation addition fails
         }
     }
 
         public List<Reservation> GetReservationsForRoom(string roomId)
     {
-        // Retrieve all reservations for the specified room ID
         return _reservationHandler.GetReservationsForRoom(roomId);
     }
 
@@ -36,13 +35,12 @@ public class ReservationService : IReservationService
     {
         try
         {
-            _reservationHandler.DeleteReservation(reservation, reserverName); // Call the method even if it doesn't return bool
+            _reservationHandler.DeleteReservation(reservation, reserverName);
             Console.WriteLine("\nReservation deleted successfully.\n");
         }
         catch (Exception ex)
         {
             Console.WriteLine($"An error occurred while deleting reservation: {ex.Message}");
-            // Optionally log the exception details using _logHandler
         }
     }
 

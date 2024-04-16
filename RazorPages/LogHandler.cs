@@ -1,21 +1,49 @@
+using System;
 using System.IO;
 using System.Text.Json;
-
-// ... other using directives
+using System.Collections.Generic;
 
 public class LogHandler
 {
     private readonly ILogger _logger;
-    private readonly string _logFilePath;
+    private readonly IReservationRepository _reservationRepository;
+    private readonly string _reservationDataFilePath;
 
 
-    public LogHandler(ILogger logger)
+    public LogHandler(ILogger logger, IReservationRepository reservationRepository)
     {
-        _logger = logger;
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+        _reservationRepository = reservationRepository;
+
+        _reservationDataFilePath = "ReservationData.json";
+
     }
 
-    public void AddLog(LogRecord log)
+    public void AddLog(LogRecord logRecord)
     {
-        _logger.Log(log); // Now it accepts a LogRecord object
+        if (logRecord == null)
+        {
+            throw new ArgumentNullException(nameof(logRecord));
+        }
+
+        _logger.Log(logRecord);
+    }
+        public void LogReservationsToFile()
+    {
+        try
+        {
+            // Get all reservations
+            var reservations = _reservationRepository.GetAllReservations();
+
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            string json = JsonSerializer.Serialize(reservations, options);
+
+            // Write JSON to file
+            File.WriteAllText(_reservationDataFilePath, json);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error logging reservations: {ex.Message}");
+        }
     }
 }
