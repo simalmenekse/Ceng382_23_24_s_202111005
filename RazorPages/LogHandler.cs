@@ -9,14 +9,11 @@ public class LogHandler
     private readonly IReservationRepository _reservationRepository;
     private readonly string _reservationDataFilePath;
 
-
     public LogHandler(ILogger logger, IReservationRepository reservationRepository)
     {
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-        _reservationRepository = reservationRepository;
-
+        _reservationRepository = reservationRepository ?? throw new ArgumentNullException(nameof(reservationRepository));
         _reservationDataFilePath = "ReservationData.json";
-
     }
 
     public void AddLog(LogRecord logRecord)

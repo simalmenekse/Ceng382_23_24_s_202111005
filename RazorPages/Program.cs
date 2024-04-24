@@ -35,6 +35,8 @@ class Program
         var reservationService = factory.CreateReservationService();
         var roomHandler = factory.CreateRoomHandler();
         var reservationHandler = factory.CreateReservationHandler();
+        var reservationRepository = factory.CreateReservationRepository();
+
 
         bool continueApp = true;
         while (continueApp)
