@@ -1,0 +1,24 @@
+@page
+@model FormPageModel
+@{
+    ViewData["Title"] = "Form Page";
+}
+
+<h1>Form Page</h1>
+
+<form method="post">
+    <div>
+        <label for="roomName">Room Name:</label>
+        <input type="text" id="roomName" name="RoomName" />
+    </div>
+    <div>
+        <label for="capacity">Capacity:</label>
+        <input type="number" id="capacity" name="Capacity" />
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
+<div class="container mt-3">
+    <a class="btn btn-primary" asp-page="/Rooms">Show Rooms</a>
+    <a class="btn btn-secondary" asp-page="/Index">Home</a>
+</div>

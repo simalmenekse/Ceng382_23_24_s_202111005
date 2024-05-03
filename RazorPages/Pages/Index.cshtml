@@ -6,8 +6,26 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" asp-page="/Index">Home</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/FormPage">Add Room</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/Rooms">Show Rooms</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <h1>Welcome to Room Reservation System</h1>
+    <p>This is the home page.</p>
+    <a class="btn btn-primary" asp-page="/FormPage">Add Room</a>
+    <a class="btn btn-secondary" asp-page="/Rooms">Show Rooms</a>
 </div>
 

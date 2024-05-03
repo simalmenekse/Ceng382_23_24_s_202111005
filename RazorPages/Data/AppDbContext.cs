@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using RazorPages.Models;
 
     public class AppDbContext : DbContext
     {

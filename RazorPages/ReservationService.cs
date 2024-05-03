@@ -1,4 +1,5 @@
 using System;
+using RazorPages.Models;
 public class ReservationService
 {
     private readonly AppDbContext _dbContext;
@@ -10,7 +11,6 @@ public class ReservationService
 
 public void AddReservation(Room room, DateTime dateTime, string reservedBy)
 {
-    // Create a new reservation object
     var reservation = new Reservation
     {
         Room = room,
@@ -18,7 +18,6 @@ public void AddReservation(Room room, DateTime dateTime, string reservedBy)
         ReservedBy = reservedBy
     };
 
-    // Add the reservation to the context and save changes
     _dbContext.Reservations.Add(reservation);
     _dbContext.SaveChanges();
 }
