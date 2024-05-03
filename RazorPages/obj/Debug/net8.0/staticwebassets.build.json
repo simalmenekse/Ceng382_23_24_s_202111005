@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9cXDiguOMjzimlOUlkNPde4OlQNsBD8BvFexUgN5qPk=",
+  "Hash": "ojP3WVx/MQwrNBOcXe7LaBBDi05gpJbZ8BmkXWhhogI=",
   "Source": "RazorPages",
   "BasePath": "_content/RazorPages",
   "Mode": "Default",
@@ -55,6 +55,25 @@
       "OriginalItemSpec": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\RazorPages.bundle.scp.css"
     },
     {
+      "Identity": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\wwwroot\\css\\custom.css",
+      "SourceId": "RazorPages",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\wwwroot\\",
+      "BasePath": "_content/RazorPages",
+      "RelativePath": "css/custom.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\custom.css"
+    },
+    {
       "Identity": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\wwwroot\\css\\site.css",
       "SourceId": "RazorPages",
       "SourceType": "Discovered",
@@ -91,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\wwwroot\\js\\rooms.js",
+      "SourceId": "RazorPages",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\wwwroot\\",
+      "BasePath": "_content/RazorPages",
+      "RelativePath": "js/rooms.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\rooms.js"
     },
     {
       "Identity": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\wwwroot\\js\\site.js",

@@ -24,7 +24,7 @@ namespace RazorPages.Migrations
                         column: x => x.RoomId,
                         principalTable: "Rooms",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict); // Change to ReferentialAction.Restrict
+                        onDelete: ReferentialAction.Restrict); 
                 });
 
             migrationBuilder.CreateIndex(
