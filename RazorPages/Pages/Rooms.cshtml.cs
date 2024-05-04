@@ -21,5 +21,7 @@ public class RoomsModel : PageModel
     {
         Rooms = await _dbContext.Rooms.ToListAsync();
     }
+
+    
 }
 }

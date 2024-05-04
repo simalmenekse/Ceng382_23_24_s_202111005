@@ -253,6 +253,18 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\wwwroot\\pexels-pixabay-159711.jpg",
+      "PackagePath": "staticwebassets\\pexels-pixabay-159711.jpg"
+    },
+    {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\wwwroot\\pexels-pixabay-247839.jpg",
+      "PackagePath": "staticwebassets\\pexels-pixabay-247839.jpg"
+    },
+    {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\wwwroot\\pexels-pixabay-289737.jpg",
+      "PackagePath": "staticwebassets\\pexels-pixabay-289737.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.RazorPages.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
