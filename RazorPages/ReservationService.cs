@@ -1,6 +1,7 @@
 public class ReservationService : IReservationService
 {
     private readonly ReservationHandler _reservationHandler;
+    private readonly ReservationRepository _reservationRepository;
     private readonly LogHandler _logHandler;
     public RoomHandler RoomHandler { get; }
 
@@ -49,4 +50,17 @@ public class ReservationService : IReservationService
     {
         _reservationHandler.DisplayScheduleForWeek();
     }
+
+        public List<Reservation> DisplayReservationByReserver(string name)
+    {
+        return _reservationHandler.GetReservationsByReserver(name);
+    }
+
+        public List<Reservation> DisplayReservationByRoomId(string roomId)
+    {
+        return _reservationHandler.GetReservationsByRoomId(roomId);
+    }
+
+
+
 }

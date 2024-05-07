@@ -27,7 +27,7 @@ public class ReservationHandler
             var logRecord = LogRecord.CreateReservationLog_A(reserverName, reservation.Room.RoomId, chosenDateTime);
             _logHandler.AddLog(logRecord);
 
-            _logHandler.LogReservationsToFile();
+            _logHandler.LogReservationsToFile(reservation);
             Console.WriteLine("\nReservation added successfully.\n");
 
             return true; 
@@ -48,7 +48,7 @@ public class ReservationHandler
             var logRecord = LogRecord.CreateReservationLog_D(reserverName, reservation.Room.RoomId, reservation.DateTime);
             _logHandler.AddLog(logRecord);
 
-            _logHandler.LogReservationsToFile();
+            _logHandler.LogReservationsToFile(reservation);
             Console.WriteLine("\nReservation deleted successfully.\n");
 
 
@@ -120,9 +120,24 @@ public class ReservationHandler
 
         Console.WriteLine("-------------------------------------------------------\n");
     }
+
     public List<Reservation> GetReservationsForRoom(string roomId)
     {
         return _reservationRepository.GetAllReservations().Where(r => r.Room.RoomId == roomId).ToList();
+    }
+
+     public List<Reservation> GetReservationsByReserver(string name)
+    {
+        var allReservations = _reservationRepository.GetAllReservations();
+        var reservationsByReserver = allReservations.Where(r => r.ReservedBy == name).ToList();
+        return reservationsByReserver;
+    }
+
+        public List<Reservation> GetReservationsByRoomId(string roomId)
+    {
+        var allReservations = _reservationRepository.GetAllReservations();
+        var reservationsByRoomId = allReservations.Where(r => r.Room.RoomId == roomId).ToList();
+        return reservationsByRoomId;
     }
 
 }

@@ -1,1 +1,117 @@
-[]
+[{
+  "Room": {
+    "roomId": "001",
+    "roomName": null,
+    "capacity": 0
+  },
+  "DateTime": "2024-05-07T09:00:00+03:00",
+  "ReservedBy": "tuna"
+},
+{
+  "Room": {
+    "roomId": "002",
+    "roomName": null,
+    "capacity": 0
+  },
+  "DateTime": "2024-05-07T09:00:00+03:00",
+  "ReservedBy": "a"
+},
+{
+  "Room": {
+    "roomId": "002",
+    "roomName": null,
+    "capacity": 0
+  },
+  "DateTime": "2024-05-07T10:00:00+03:00",
+  "ReservedBy": "tuna"
+},
+{
+  "Room": {
+    "roomId": "001",
+    "roomName": null,
+    "capacity": 0
+  },
+  "DateTime": "2024-05-07T09:00:00+03:00",
+  "ReservedBy": "tuna"
+},
+{
+  "Room": {
+    "roomId": "001",
+    "roomName": null,
+    "capacity": 0
+  },
+  "DateTime": "2024-05-07T09:00:00+03:00",
+  "ReservedBy": "Tuna"
+},
+{
+  "Room": {
+    "roomId": "002",
+    "roomName": null,
+    "capacity": 0
+  },
+  "DateTime": "2024-05-07T09:00:00+03:00",
+  "ReservedBy": "Tuna"
+},
+{
+  "Room": {
+    "roomId": "001",
+    "roomName": null,
+    "capacity": 0
+  },
+  "DateTime": "2024-05-07T09:00:00+03:00",
+  "ReservedBy": "Simal"
+},
+{
+  "Room": {
+    "roomId": "001",
+    "roomName": null,
+    "capacity": 0
+  },
+  "DateTime": "2024-05-07T10:00:00+03:00",
+  "ReservedBy": "Tuna"
+},
+{
+  "Room": {
+    "roomId": "002",
+    "roomName": null,
+    "capacity": 0
+  },
+  "DateTime": "2024-05-07T12:00:00+03:00",
+  "ReservedBy": "Duru"
+},
+{
+  "Room": {
+    "roomId": "001",
+    "roomName": null,
+    "capacity": 0
+  },
+  "DateTime": "2024-05-07T15:00:00+03:00",
+  "ReservedBy": "Mert"
+},
+{
+  "Room": {
+    "roomId": "001",
+    "roomName": null,
+    "capacity": 0
+  },
+  "DateTime": "2024-05-07T09:00:00+03:00",
+  "ReservedBy": "Tuna"
+},
+{
+  "Room": {
+    "roomId": "001",
+    "roomName": null,
+    "capacity": 0
+  },
+  "DateTime": "2024-05-07T09:00:00+03:00",
+  "ReservedBy": "Simal"
+},
+{
+  "Room": {
+    "roomId": "001",
+    "roomName": null,
+    "capacity": 0
+  },
+  "DateTime": "2024-05-07T09:00:00+03:00",
+  "ReservedBy": "simal"
+}]
