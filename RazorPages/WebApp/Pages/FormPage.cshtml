@@ -1,0 +1,73 @@
+@page
+@model FormPageModel
+@{
+    ViewData["Title"] = "Form Page";
+}
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="Thirteenth navbar example">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11"
+        aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
+        <a class="navbar-brand col-lg-3 me-0" href="#">Reservation System</a>
+        <ul class="navbar-nav col-lg-6 justify-content-lg-center">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" asp-page="/Index">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index">Account</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" asp-page="/FormPage">Add Room</a></li>
+              <li><a class="dropdown-item" asp-page="/Rooms">Show Rooms</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+          <div class="me-3">
+            <form role="search">
+              <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+            </form>
+          </div>
+          <div>
+            <form method="post" asp-area="Identity" asp-page="/Account/Logout"
+              asp-route-returnUrl="@Url.Page("/Account/Login", new { area = "Identity" })">
+              <button type="submit" class="btn btn-danger"
+                onclick="return confirm('Are you sure you want to logout?')">Logout</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6"><br>
+            <img src="~/pexels-pixabay-289737.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image"
+                width="700" height="600" loading="lazy">
+            <h1 class="text-center">Add Room to Database</h1>
+
+            <form method="post">
+                <div class="mb-3">
+                    <label for="roomName" class="form-label">Room Name:</label>
+                    <input type="text" class="form-control" id="roomName" name="RoomName" />
+                </div>
+                <div class="mb-3">
+                    <label for="capacity" class="form-label">Capacity:</label>
+                    <input type="number" class="form-control" id="capacity" name="Capacity" min="1" />
+                    <small id="capacityError" class="text-danger" style="display: none;">Capacity must be greater than
+                        0.</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Room</button>
+            </form>
+        </div>
+    </div>
+</div <script src="~/js/rooms.js" asp-append-version="true">
+</script>

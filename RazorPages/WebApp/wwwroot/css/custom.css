@@ -1,0 +1,9 @@
+@keyframes highlight {
+    0% { background-color: inherit; }
+    50% { background-color: #f8f9fa; } 
+    100% { background-color: inherit; }
+}
+
+.table-row-highlight:hover {
+    animation: highlight 0.5s ease forwards;
+}

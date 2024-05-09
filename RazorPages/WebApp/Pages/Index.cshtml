@@ -1,0 +1,82 @@
+﻿@page
+@model IndexModel
+@{
+  ViewData["Title"] = "Home page";
+}
+
+<main>
+
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="Thirteenth navbar example">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11"
+        aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
+        <a class="navbar-brand col-lg-3 me-0" href="#">Reservation System</a>
+        <ul class="navbar-nav col-lg-6 justify-content-lg-center">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" asp-page="/Index">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index">Account</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" asp-page="/FormPage">Add Room</a></li>
+              <li><a class="dropdown-item" asp-page="/Rooms">Show Rooms</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+          <div class="me-3">
+            <form role="search">
+              <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+            </form>
+          </div>
+          <div>
+            <form method="post" asp-area="Identity" asp-page="/Account/Logout"
+              asp-route-returnUrl="@Url.Page("/Account/Login", new { area = "Identity" })">
+              <button type="submit" class="btn btn-danger"
+                onclick="return confirm('Are you sure you want to logout?')">Logout</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <div class="px-4 pt-5 my-5 text-center border-bottom">
+    <h1 class="display-4 fw-bold text-body-emphasis">Welcome to our Room Reservation Service</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">Quickly Add Rooms to the Database or View the existing rooms.</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+        <a class="btn btn-primary btn-lg px-4 gap-3" asp-page="/FormPage">Add Room</a> <a
+          class="btn btn-outline-secondary btn-lg px-4" asp-page="/Rooms">Show Rooms</a>
+
+      </div>
+    </div>
+    <div class="overflow-hidden" style="max-height: 30vh;">
+      <div class="container px-5">
+        <img src="~/pexels-pixabay-159711.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image"
+          width="700" height="600" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+  <footer class="py-3 my-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+    </ul>
+    <p class="text-center text-body-secondary">© 2024 Company, Inc</p>
+  </footer>
+</main>
