@@ -6,77 +6,114 @@
 
 <main>
 
+  <head>
+    <style>
+      .feature-icon {
+        width: 4rem;
+        height: 4rem;
+        border-radius: .75rem;
+      }
+    </style>
+  </head>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="Thirteenth navbar example">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11"
-        aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
-        <a class="navbar-brand col-lg-3 me-0" href="#">Reservation System</a>
-        <ul class="navbar-nav col-lg-6 justify-content-lg-center">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" asp-page="/Index">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index">Account</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" asp-page="/FormPage">Add Room</a></li>
-              <li><a class="dropdown-item" asp-page="/Rooms">Show Rooms</a></li>
-            </ul>
-          </li>
-        </ul>
-        <div class="d-lg-flex col-lg-3 justify-content-lg-end">
-          <div class="me-3">
-            <form role="search">
-              <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-            </form>
-          </div>
-          <div>
-            <form method="post" asp-area="Identity" asp-page="/Account/Logout"
-              asp-route-returnUrl="@Url.Page("/Account/Login", new { area = "Identity" })">
-              <button type="submit" class="btn btn-danger"
-                onclick="return confirm('Are you sure you want to logout?')">Logout</button>
-            </form>
-          </div>
+  <body>
+    <div class="px-4 pt-5 my-5 text-center border-bottom">
+      <h1 class="display-4 fw-bold text-body-emphasis">Welcome to HealthTrack
+      </h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">
+          Welcome to HealthTrack! We're here to revolutionize how you approach fitness challenges. Our platform offers a
+          seamless way to join challenges tailored to your interests and fitness level. With a supportive community and
+          diverse range of challenges, achieving your health goals has never been easier. Join us today and take the
+          first step towards a healthier lifestyle!
+        </p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+          <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Browse Challenges
+          </button>
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Contact US
+          </button>
+        </div>
+      </div>
+      <div class="overflow-hidden" style="max-height: 30vh;">
+        <div class="container px-5">
+          <img src="~/photos/main_page.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700"
+            height="500" loading="lazy">
         </div>
       </div>
     </div>
-  </nav>
 
-
-
-  <div class="px-4 pt-5 my-5 text-center border-bottom">
-    <h1 class="display-4 fw-bold text-body-emphasis">Welcome to our Room Reservation Service</h1>
-    <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4">Quickly Add Rooms to the Database or View the existing rooms.</p>
-      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-        <a class="btn btn-primary btn-lg px-4 gap-3" asp-page="/FormPage">Add Room</a> <a
-          class="btn btn-outline-secondary btn-lg px-4" asp-page="/Rooms">Show Rooms</a>
-
+    <div class="container px-4 py-5" id="featured-3">
+      <h2 class="pb-2 border-bottom">Why Start Your Fitness Journey With Us?</h2>
+      <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <div class="feature col">
+          <div
+            class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+            <img src="~/svgs/exercise.svg" alt="exercise_svg" height="30px">
+          </div>
+          <h3 class="fs-2 text-body-emphasis">Expertise</h3>
+          <p> Our team consists of fitness professionals who are dedicated to helping you achieve your health and
+            wellness goals. With their expertise, you can trust that you're receiving top-notch guidance and support
+            throughout your fitness journey.
+          </p>
+        </div>
+        <div class="feature col">
+          <div
+            class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+            <img src="~/svgs/fitness.svg" alt="fitness_svg" height="30px">
+          </div>
+          <h3 class="fs-2 text-body-emphasis">Personalized Approach
+          </h3>
+          <p>We understand that every individual is unique, which is why we take a personalized approach to fitness. Our
+            platform allows you to set personalized goals, track your progress, and receive tailored recommendations to
+            help you reach your full potential.
+          </p>
+        </div>
+        <div class="feature col">
+          <div
+            class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+            <img src="~/svgs/running.svg" alt="chat-square-heart-image" height="30px">
+          </div>
+          <h3 class="fs-2 text-body-emphasis">Nationwide Reach
+          </h3>
+          <p>No matter where you are in the country, our platform is accessible to you. With our nationwide reach, you
+            can connect with like-minded individuals, join challenges, and access resources from anywhere, anytime.
+          </p>
+        </div>
       </div>
     </div>
-    <div class="overflow-hidden" style="max-height: 30vh;">
-      <div class="container px-5">
-        <img src="~/pexels-pixabay-159711.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image"
-          width="700" height="600" loading="lazy">
+    <div class="container">
+      <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="~/photos/mainp_weight.jpg" class="d-block w-100" alt="weight_image">
+          </div>
+          <div class="carousel-item">
+            <img src="~/photos/mainp_girl.jpg" class="d-block w-100" alt="girl_image">
+          </div>
+          <div class="carousel-item">
+            <img src="~/photos/mainp_run.jpg" class="d-block w-100" alt="running_image">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
     </div>
-  </div>
 
-  <footer class="py-3 my-4">
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
-    </ul>
-    <p class="text-center text-body-secondary">© 2024 Company, Inc</p>
-  </footer>
+  </body>
 </main>

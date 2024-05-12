@@ -2,29 +2,81 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Profile";
-    ViewData["ActivePage"] = ManageNavPages.Index;
+    ViewData["ActivePage"] = "Index";
 }
-
-<h3>@ViewData["Title"]</h3>
-<partial name="_StatusMessage" for="StatusMessage" />
-<div class="row">
-    <div class="col-md-6">
-        <form id="profile-form" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
-            <div class="form-floating mb-3">
-                <input asp-for="Username" class="form-control" placeholder="Please choose your username." disabled />
-                <label asp-for="Username" class="form-label"></label>
-            </div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Please enter your phone number."/>
-                <label asp-for="Input.PhoneNumber" class="form-label"></label>
-                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
-            </div>
-            <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
-        </form>
-    </div>
-</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+            <div class="position-sticky"><br>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile"
+                            asp-page="./Index">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @ManageNavPages.EmailNavClass(ViewContext)" id="email"
+                            asp-page="./Email">Email</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password"
+                            asp-page="./ChangePassword">Password</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)" id="two-factor"
+                            asp-page="./TwoFactorAuthentication">Two-factor authentication</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data"
+                            asp-page="./PersonalData">Personal data</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Index">Go Back</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <br />
+            <h3>@ViewData["Title"]</h3>
+            <partial name="_StatusMessage" for="StatusMessage" />
+            <div class="row">
+                <div class="col-md-6">
+                    <form id="profile-form" method="post" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                        <div class="form-floating mb-3">
+                            <input asp-for="Username" class="form-control" placeholder="Please choose your username."
+                                disabled />
+                            <label asp-for="Username" class="form-label"></label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input asp-for="Input.PhoneNumber" class="form-control"
+                                placeholder="Please enter your phone number." />
+                            <label asp-for="Input.PhoneNumber" class="form-label"></label>
+                            <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input asp-for="Input.ProfilePicture" type="file" class="form-control" accept="image/*" />
+                            <label class="form-label">Profile Picture</label>
+                            <span asp-validation-for="Input.ProfilePicture" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea asp-for="Input.Bio" class="form-control" placeholder="Please enter your bio."
+                                rows="4"></textarea>
+                            <label asp-for="Input.Bio" class="form-label"></label>
+                            <span asp-validation-for="Input.Bio" class="text-danger"></span>
+                        </div>
+                        <button id="update-profile-button" type="submit"
+                            class="w-100 btn btn-lg btn-primary">Save</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

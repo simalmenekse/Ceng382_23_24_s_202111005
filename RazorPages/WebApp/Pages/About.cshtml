@@ -1,0 +1,65 @@
+@page
+@model AboutPageModel
+@{
+    ViewData["Title"] = "About";
+}
+
+<body>
+
+    <head>
+        <style>
+            h1 {
+                color: #333;
+            }
+
+            p {
+                color: #666;
+                font-size: 18px;
+                line-height: 1.6;
+            }
+
+            .square-image-container {
+                width: 1000px;
+                /* Adjust the width as needed */
+                height: 600px;
+                /* Adjust the height as needed */
+                overflow: hidden;
+                border-radius: 10px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .square-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        </style>
+    </head>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="mb-4">About HealthTrack</h1>
+                <p class="lead">Welcome to HealthTrack! We're passionate about transforming the way you engage with
+                    fitness challenges. At HealthTrack, we've created a platform that simplifies the process of joining
+                    challenges, making it tailored to your unique interests and fitness level.</p>
+                <p>Our platform provides a seamless experience, allowing you to discover and participate in challenges
+                    that align with your goals. Whether you're looking to improve your strength, endurance, flexibility,
+                    or overall wellness, we have something for everyone.</p>
+                <p>What sets us apart is our vibrant and supportive community. Connect with like-minded individuals,
+                    share your progress, and cheer each other on as you strive towards your health goals. With
+                    HealthTrack, you're never alone on your fitness journey. We offer a diverse range of challenges,
+                    ensuring there's always something new and exciting to explore. From cardio challenges to weight loss
+                    challenges, there's no shortage of options to keep you motivated and engaged.</p>
+                <p>Ready to embark on your journey towards a healthier lifestyle? Join us today and take the first step
+                    towards a happier, healthier you with HealthTrack!</p>
+            </div>
+            <div class="col-md-6 d-flex align-items-center justify-content-center">
+                <div class="square-image-container">
+                    <img src="~/photos/about_page.jpg" class="square-image" alt="About Image">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>

@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\default_profile_picture.jpg",
+      "PackagePath": "staticwebassets\\default_profile_picture.jpg"
+    },
+    {
       "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
@@ -253,16 +257,44 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\pexels-pixabay-159711.jpg",
-      "PackagePath": "staticwebassets\\pexels-pixabay-159711.jpg"
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\photos\\about_page.jpg",
+      "PackagePath": "staticwebassets\\photos\\about_page.jpg"
     },
     {
-      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\pexels-pixabay-247839.jpg",
-      "PackagePath": "staticwebassets\\pexels-pixabay-247839.jpg"
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\photos\\main_page.png",
+      "PackagePath": "staticwebassets\\photos\\main_page.png"
     },
     {
-      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\pexels-pixabay-289737.jpg",
-      "PackagePath": "staticwebassets\\pexels-pixabay-289737.jpg"
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\photos\\mainp_girl.jpg",
+      "PackagePath": "staticwebassets\\photos\\mainp_girl.jpg"
+    },
+    {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\photos\\mainp_run.jpg",
+      "PackagePath": "staticwebassets\\photos\\mainp_run.jpg"
+    },
+    {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\photos\\mainp_weight.jpg",
+      "PackagePath": "staticwebassets\\photos\\mainp_weight.jpg"
+    },
+    {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\svgs\\exercise.svg",
+      "PackagePath": "staticwebassets\\svgs\\exercise.svg"
+    },
+    {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\svgs\\expertise.svg",
+      "PackagePath": "staticwebassets\\svgs\\expertise.svg"
+    },
+    {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\svgs\\fitness.svg",
+      "PackagePath": "staticwebassets\\svgs\\fitness.svg"
+    },
+    {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\svgs\\fitness_logo.svg",
+      "PackagePath": "staticwebassets\\svgs\\fitness_logo.svg"
+    },
+    {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\svgs\\running.svg",
+      "PackagePath": "staticwebassets\\svgs\\running.svg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.WebApp.Microsoft.AspNetCore.StaticWebAssets.props",
