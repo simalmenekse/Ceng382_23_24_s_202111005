@@ -182,6 +182,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/University/CENG 328 - Web Development/Ceng_323_23_24_s_202111005/RazorPages/WebApp/Pages/AddChallenges.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQ2hhbGxlbmdlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/University/CENG 328 - Web Development/Ceng_323_23_24_s_202111005/RazorPages/WebApp/Pages/Browse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnJvd3NlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/University/CENG 328 - Web Development/Ceng_323_23_24_s_202111005/RazorPages/WebApp/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -192,14 +200,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/University/CENG 328 - Web Development/Ceng_323_23_24_s_202111005/RazorPages/WebApp/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/University/CENG 328 - Web Development/Ceng_323_23_24_s_202111005/RazorPages/WebApp/Pages/Rooms.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9vbXMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/University/CENG 328 - Web Development/Ceng_323_23_24_s_202111005/RazorPages/WebApp/Pages/Shared/_LayoutWithoutNavFooter.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXRXaXRob3V0TmF2Rm9vdGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/University/CENG 328 - Web Development/Ceng_323_23_24_s_202111005/RazorPages/WebApp/Pages/Shared/_LoginPartial.cshtml]

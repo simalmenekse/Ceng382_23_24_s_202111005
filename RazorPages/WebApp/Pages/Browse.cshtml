@@ -1,0 +1,147 @@
+@page
+@model BrowseModel
+@{
+    ViewData["Title"] = "Browse Challenges";
+}
+
+@{
+    var imagePaths = new List<string>
+    {
+        "/browse_photo_pool/1.jpg",
+        "/browse_photo_pool/2.jpg",
+        "/browse_photo_pool/3.jpg",
+        "/browse_photo_pool/4.jpg",
+        "/browse_photo_pool/5.jpg",
+        "/browse_photo_pool/6.jpg",
+        "/browse_photo_pool/7.jpg",
+    };
+
+    var distinctCategories = Model.Challenges.Select(c => c.Category).Distinct().ToList();
+    var distinctDifficultyLevels = Model.Challenges.Select(c => c.DifficultyLevel).Distinct().ToList();
+
+    var selectedCategory = Request.Query["categoryFilter"].ToString();
+    var selectedDifficultyLevel = Request.Query["difficultyFilter"].ToString();
+
+    var filteredChallenges = Model.Challenges.AsEnumerable(); 
+    if (!string.IsNullOrEmpty(selectedCategory))
+    {
+        filteredChallenges = filteredChallenges.Where(c => c.Category == selectedCategory);
+    }
+    if (!string.IsNullOrEmpty(selectedDifficultyLevel))
+    {
+        filteredChallenges = filteredChallenges.Where(c => c.DifficultyLevel == selectedDifficultyLevel);
+    }
+
+    var searchQuery = Request.Query["searchQuery"].ToString();
+
+    if (!string.IsNullOrEmpty(searchQuery))
+    {
+        filteredChallenges = filteredChallenges.Where(c =>
+            c.Category.Contains(searchQuery) ||
+            c.DifficultyLevel.Contains(searchQuery) ||
+            c.Period.Contains(searchQuery) ||
+            c.Instructions.Contains(searchQuery));
+    }
+}
+<br>
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-4">
+                <h2 class="mb-4">Active Challenges</h2>
+
+                <form asp-page="./Browse" method="get" class="form-inline float-md-right mt-md-0 mt-3">
+                    <div class="form-group">
+                        <label for="categoryFilter" class="mr-2">Category</label>
+                        <select class="form-control" id="categoryFilter" name="categoryFilter">
+                            <option value="">All Categories</option>
+                            @foreach (var category in distinctCategories)
+                            {
+                                var isSelected = selectedCategory == category ? "selected" : "";
+                                <option value="@category" selected="@isSelected">@category</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group ml-3">
+                        <label for="difficultyFilter" class="mr-2">Difficulty Level</label>
+                        <select class="form-control" id="difficultyFilter" name="difficultyFilter">
+                            <option value="">All Difficulty Levels</option>
+                            @foreach (var difficulty in distinctDifficultyLevels)
+                            {
+                                var isSelected = selectedDifficultyLevel == difficulty ? "selected" : "";
+                                <option value="@difficulty" selected="@isSelected">@difficulty</option>
+                            }
+                        </select>
+
+                    </div><br>
+                    <button type="submit" class="btn btn-primary ml-3">Apply Filter</button>
+                    @if (!string.IsNullOrEmpty(selectedCategory) || !string.IsNullOrEmpty(selectedDifficultyLevel))
+                    {
+                        <a href="./Browse" class="btn btn-secondary ml-2">Remove Filter</a>
+                    }
+                </form>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            @foreach (var challenge in filteredChallenges)
+            {
+                var imagePath = imagePaths[challenge.Id % imagePaths.Count]; 
+
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" src="@imagePath" alt="Card image cap"> 
+                        <div class="card-body">
+                            <h3 class="card-title">@challenge.Category</h3>
+                            <p class="card-text">Difficulty Level: @challenge.DifficultyLevel</p>
+                            <p class="card-text">Period: @challenge.Period</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-secondary"
+                                        onclick="showInstructions('@challenge.Id')">View Details</button>
+                                    <button class="btn btn-primary" onclick="joinChallenge('@challenge.Id')">Join</button>
+                                </div>
+                            </div>
+                            <div id="instructions_@challenge.Id" style="display:none;">
+                                <hr>
+                                <h4>Instructions:</h4>
+                                <p>@challenge.Instructions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        @if (filteredChallenges.Any())
+        {
+            <div class="text-center">
+                <button class="btn btn-primary" onclick="showAll()">Show All</button>
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    function showInstructions(challengeId) {
+        var instructionsDiv = document.getElementById('instructions_' + challengeId);
+        if (instructionsDiv.style.display === 'none') {
+            instructionsDiv.style.display = 'block';
+        } else {
+            instructionsDiv.style.display = 'none';
+        }
+    }
+
+    function joinChallenge(challengeId) {
+        alert('You have joined the challenge with ID: ' + challengeId);
+    }
+
+    function showAll() {
+        document.getElementById("categoryFilter").value = "";
+        document.getElementById("difficultyFilter").value = "";
+        window.location.href = "./Browse";
+    }
+</script>
+</div> 
+</div> 

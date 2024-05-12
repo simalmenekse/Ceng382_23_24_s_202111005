@@ -116,10 +116,9 @@ namespace WebApp.Areas.Identity.Pages.Account
                 }
             }
 
-            // If we got this far, something failed, redisplay form
             return Page();
         }
-        private ApplicationUser CreateUser()
+        public ApplicationUser CreateUser()
         {
             try
             {
@@ -133,7 +132,7 @@ namespace WebApp.Areas.Identity.Pages.Account
             }
         }
 
-        private IUserEmailStore<ApplicationUser> GetEmailStore()
+        public IUserEmailStore<ApplicationUser> GetEmailStore()
         {
             if (!_userManager.SupportsUserEmail)
             {

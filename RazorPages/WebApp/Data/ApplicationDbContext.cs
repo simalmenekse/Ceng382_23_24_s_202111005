@@ -11,8 +11,7 @@ namespace WebApp.Data
         {
         }
 
-        public DbSet<Room> Rooms { get; set; }
+        public DbSet<Challenge> Challenges { get; set; }
 
-        public DbSet<Reservation> Reservations { get; set; }
     }
 }

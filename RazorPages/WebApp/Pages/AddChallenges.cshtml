@@ -1,0 +1,77 @@
+@page
+@model AddChallengeModel
+@{
+    ViewData["Title"] = "Add Challenge";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6"> <br><br>
+            <img src="~/photos/add_challenge.jpg" class="img-fluid rounded" alt="Challenge Photo">
+        </div>
+        <div class="col-md-6">
+            <form method="post">
+                <div class="mb-3"> <br>
+                    <label for="category" class="form-label fs-5 fw-bold">Category</label>
+                    <select class="form-select" id="category" name="Challenge.Category" required>
+                        <option value="" selected disabled>Select Category</option>
+
+                        <option value="step">Step</option>
+                        <option value="squad">Squad</option>
+                        <option value="cardio">Cardio</option>
+                        <option value="weight loss">Weight Loss</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="period" class="form-label fs-5 fw-bold">Period</label>
+                    <select class="form-select" id="period" name="Challenge.Period" onchange="handlePeriodChange(this.value)"
+                        required>
+                        <option value="" selected disabled>Select Period</option>
+
+                        <option value="1 week">1 Week</option>
+                        <option value="2 weeks">2 Weeks</option>
+                        <option value="1 month">1 Month</option>
+                        <option value="3 months">3 Months</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <input type="text" class="form-control mt-2 d-none" id="otherPeriod" name="Challenge.OtherPeriod"
+                        placeholder="Enter custom period">
+                </div>
+                    <div class="mb-3">
+                        <label for="difficulty" class="form-label fs-5 fw-bold">Difficulty Level</label>
+                        <select class="form-select" id="difficulty" name="Challenge.DifficultyLevel" required>
+                            <option value="" selected disabled>Select Difficulty Level</option>
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="instructions" class="form-label fs-5 fw-bold">Instructions</label>
+                        <textarea class="form-control" id="instructions" name="Challenge.Instructions" rows="3"
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Challenge</button>
+            </form>
+            @if (ViewData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success mt-3" role="alert">
+                    @ViewData["SuccessMessage"]
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script>
+    function handlePeriodChange(value) {
+        var otherPeriodInput = document.getElementById("otherPeriod");
+        if (value === "other") {
+            otherPeriodInput.classList.remove("d-none");
+            otherPeriodInput.setAttribute("required", "true");
+        } else {
+            otherPeriodInput.classList.add("d-none");
+            otherPeriodInput.removeAttribute("required");
+        }
+    }
+</script>

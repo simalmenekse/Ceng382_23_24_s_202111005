@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.Extensions.DependencyInjection;
 using WebApp.Data;
 using RazorPages.WebApp.Models;
 
@@ -19,7 +20,9 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
         .AddSignInManager<SignInManager<ApplicationUser>>();
 
 
+
 builder.Services.AddRazorPages();
+
 
 var app = builder.Build();
 

@@ -5,6 +5,38 @@
       "PackagePath": "staticwebassets\\WebApp.bundle.scp.css"
     },
     {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\browse_photo_pool\\1.jpg",
+      "PackagePath": "staticwebassets\\browse_photo_pool\\1.jpg"
+    },
+    {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\browse_photo_pool\\2.jpg",
+      "PackagePath": "staticwebassets\\browse_photo_pool\\2.jpg"
+    },
+    {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\browse_photo_pool\\3.jpg",
+      "PackagePath": "staticwebassets\\browse_photo_pool\\3.jpg"
+    },
+    {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\browse_photo_pool\\4.jpg",
+      "PackagePath": "staticwebassets\\browse_photo_pool\\4.jpg"
+    },
+    {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\browse_photo_pool\\5.jpg",
+      "PackagePath": "staticwebassets\\browse_photo_pool\\5.jpg"
+    },
+    {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\browse_photo_pool\\6.jpg",
+      "PackagePath": "staticwebassets\\browse_photo_pool\\6.jpg"
+    },
+    {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\browse_photo_pool\\7.jpg",
+      "PackagePath": "staticwebassets\\browse_photo_pool\\7.jpg"
+    },
+    {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\browse_photo_pool\\8.jpg",
+      "PackagePath": "staticwebassets\\browse_photo_pool\\8.jpg"
+    },
+    {
       "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\css\\custom.css",
       "PackagePath": "staticwebassets\\css\\custom.css"
     },
@@ -259,6 +291,10 @@
     {
       "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\photos\\about_page.jpg",
       "PackagePath": "staticwebassets\\photos\\about_page.jpg"
+    },
+    {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\photos\\add_challenge.jpg",
+      "PackagePath": "staticwebassets\\photos\\add_challenge.jpg"
     },
     {
       "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\photos\\main_page.png",
