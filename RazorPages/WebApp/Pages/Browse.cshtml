@@ -46,8 +46,11 @@
 
 @if (TempData["SuccessMessage"] != null)
 {
-    <div class="alert alert-success" role="alert">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
         @TempData["SuccessMessage"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
 }
 <br>
@@ -55,47 +58,49 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-md-4">
-                <h2 class="mb-4">Active Challenges</h2>
+            <div class="row mb-4">
 
-                <form asp-page="./Browse" method="get" class="form-inline float-md-right mt-md-0 mt-3">
-                    <div class="form-group">
-                        <label for="categoryFilter" class="mr-2">Category</label>
-                        <select class="form-control" id="categoryFilter" name="categoryFilter">
-                            <option value="">All Categories</option>
-                            @foreach (var category in distinctCategories)
-                            {
-                                var isSelected = selectedCategory == category ? "selected" : "";
-                                <option value="@category" selected="@isSelected">@category</option>
-                            }
-                        </select>
-                    </div>
-                    <div class="form-group ml-3">
-                        <label for="difficultyFilter" class="mr-2">Difficulty Level</label>
-                        <select class="form-control" id="difficultyFilter" name="difficultyFilter">
-                            <option value="">All Difficulty Levels</option>
-                            @foreach (var difficulty in distinctDifficultyLevels)
-                            {
-                                var isSelected = selectedDifficultyLevel == difficulty ? "selected" : "";
-                                <option value="@difficulty" selected="@isSelected">@difficulty</option>
-                            }
-                        </select>
+                <div class="col-md-6">
+                    <h2 class="mb-4">Active Challenges</h2>
 
-                    </div><br>
-                    <button type="submit" class="btn btn-primary ml-3">Apply Filter</button>
-                    @if (!string.IsNullOrEmpty(selectedCategory) || !string.IsNullOrEmpty(selectedDifficultyLevel))
-                    {
-                        <a href="./Browse" class="btn btn-secondary ml-2">Remove Filter</a>
-                    }
-                </form>
+                    <form asp-page="./Browse" method="get" class="form-inline float-md-right mt-md-0 mt-3">
+                        <div class="form-group">
+                            <label for="categoryFilter" class="mr-2">Category</label>
+                            <select class="form-control" id="categoryFilter" name="categoryFilter">
+                                <option value="">All Categories</option>
+                                @foreach (var category in distinctCategories)
+                                {
+                                    var isSelected = selectedCategory == category ? "selected" : "";
+                                    <option value="@category" selected="@isSelected">@category</option>
+                                }
+                            </select>&nbsp;
+                            <label for="difficultyFilter" class="mr-2">Difficulty Level</label>
+                            <select class="form-control" id="difficultyFilter" name="difficultyFilter">
+                                <option value="">All Difficulty Levels</option>
+                                @foreach (var difficulty in distinctDifficultyLevels)
+                                {
+                                    var isSelected = selectedDifficultyLevel == difficulty ? "selected" : "";
+                                    <option value="@difficulty" selected="@isSelected">@difficulty</option>
+                                }
+                            </select>
+                            <button type="submit" class="btn btn-primary ml-3">Apply Filter</button>
+                            @if (!string.IsNullOrEmpty(selectedCategory) ||
+                            !string.IsNullOrEmpty(selectedDifficultyLevel))
+                            {
+                                <a href="./Browse" class="btn btn-secondary ml-2">Remove Filter</a>
+                            } &nbsp;
+                            <div class="text-center">
+                                <button class="btn btn-primary" onclick="showAll()">Show All</button>
+                            </div>
+    
+                    </form>
+                </div>
             </div>
         </div>
-        <br>
         <div class="row">
             @foreach (var challenge in filteredChallenges)
             {
                 var imagePath = imagePaths[challenge.Id % imagePaths.Count];
-
                 <div class="col-md-4">
                     <div class="card mb-4 box-shadow">
                         <img class="card-img-top" src="@imagePath" alt="Card image cap">
