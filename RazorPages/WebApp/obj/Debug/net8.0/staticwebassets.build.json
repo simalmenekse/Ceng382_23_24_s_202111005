@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "eqwJIeeqmBCpObjJgeT5q7Zxu1T8GQT6Br3isXum5Bc=",
+  "Hash": "hHjWkaUYwey9hLSH42LrGJcVhmi7ePIlYbj/1i/M0DY=",
   "Source": "WebApp",
   "BasePath": "_content/WebApp",
   "Mode": "Default",
@@ -1499,12 +1499,12 @@
       "OriginalItemSpec": "wwwroot\\photos\\add_challenge.jpg"
     },
     {
-      "Identity": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\photos\\faqs.jpg",
+      "Identity": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\photos\\contact.jpg",
       "SourceId": "WebApp",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\",
       "BasePath": "_content/WebApp",
-      "RelativePath": "photos/faqs.jpg",
+      "RelativePath": "photos/contact.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1515,7 +1515,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\photos\\faqs.jpg"
+      "OriginalItemSpec": "wwwroot\\photos\\contact.jpg"
     },
     {
       "Identity": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\photos\\join_page.jpg",

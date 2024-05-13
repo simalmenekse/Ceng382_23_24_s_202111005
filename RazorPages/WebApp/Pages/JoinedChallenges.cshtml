@@ -4,24 +4,23 @@
     ViewData["Title"] = "Joined Challenges";
 
     var imagePaths = new List<string>
-{
-"/browse_photo_pool/1.jpg",
-"/browse_photo_pool/2.jpg",
-"/browse_photo_pool/3.jpg",
-"/browse_photo_pool/4.jpg",
-"/browse_photo_pool/5.jpg",
-"/browse_photo_pool/6.jpg",
-"/browse_photo_pool/7.jpg"
-};
+    {
+        "/browse_photo_pool/1.jpg",
+        "/browse_photo_pool/2.jpg",
+        "/browse_photo_pool/3.jpg",
+        "/browse_photo_pool/4.jpg",
+        "/browse_photo_pool/5.jpg",
+        "/browse_photo_pool/6.jpg",
+        "/browse_photo_pool/7.jpg"
+    };
 
     var additionalImagePool = new List<string>
-{
-"/joined_photo_pool/dynamic_pool/1.jpg",
-"/joined_photo_pool/dynamic_pool/2.jpg",
-"/joined_photo_pool/dynamic_pool/3.jpg",
-};
+    {
+        "/joined_photo_pool/dynamic_pool/1.jpg",
+        "/joined_photo_pool/dynamic_pool/2.jpg",
+        "/joined_photo_pool/dynamic_pool/3.jpg",
+    };
 }
-
 
 @if (TempData["SuccessMessage"] != null)
 {
@@ -35,10 +34,10 @@
 
 <head>
     <style>
-    .additional-photo {
-        margin-top: 70px;
-    }
-</style>
+        .additional-photo {
+            margin-top: 140px;
+        }
+    </style>
 </head>
 
 <br>
@@ -47,32 +46,58 @@
         <div class="row">
             <div class="col-md-8">
                 <h2 class="mb-4">Joined Challenges</h2>
-            
+                <div class="mb-3">
+                    @if (Request.Query["showFavorites"] == "true")
+                    {
+                        <a asp-page="./JoinedChallenges" class="btn btn-primary">Show All</a>
+                    }
+                    else
+                    {
+                        <a asp-page="./JoinedChallenges" asp-route-showFavorites="true" class="btn btn-primary">Show Favorites</a>
+                    }
+                </div>
+
                 <div class="row">
                     @foreach (var joinedChallenge in Model.JoinedChallenges)
+{
+    var imagePath = imagePaths[joinedChallenge.Challenge.Id % imagePaths.Count];
+    <div class="col-md-6 mb-4">
+        <div class="card box-shadow">
+            <img class="card-img-top" src="@imagePath" alt="Card image cap">
+            <div class="card-body">
+                <h3 class="card-title">@joinedChallenge.Challenge.Category</h3>
+                <p class="card-text">Difficulty Level: @joinedChallenge.Challenge.DifficultyLevel</p>
+                <p class="card-text">Period: @joinedChallenge.Challenge.Period</p>
+                <p class="card-text">Join Date: @joinedChallenge.JoinDate.ToShortDateString()</p>
+                <hr>
+                <h4>Instructions:</h4>
+                <p>@joinedChallenge.Challenge.Instructions</p>
+                <div class="d-flex justify-content-between">
+                    <form id="leaveForm_@joinedChallenge.Challenge.Id" onsubmit="return confirmLeave(@joinedChallenge.Challenge.Id)" asp-page-handler="LeaveChallenge"
+                          handler="OnPostLeaveChallengeAsync"
+                          asp-route-challengeId="@joinedChallenge.Challenge.Id">
+                        <button type="submit" class="btn btn-danger">Leave Challenge</button>
+                        @Html.AntiForgeryToken()
+                    </form>
+                    @if (joinedChallenge.IsFavorite)
                     {
-                        var imagePath = imagePaths[joinedChallenge.Challenge.Id % imagePaths.Count];
-                        <div class="col-md-6 mb-4">
-                            <div class="card box-shadow">
-                                <img class="card-img-top" src="@imagePath" alt="Card image cap">
-                                <div class="card-body">
-                                    <h3 class="card-title">@joinedChallenge.Challenge.Category</h3>
-                                    <p class="card-text">Difficulty Level: @joinedChallenge.Challenge.DifficultyLevel</p>
-                                    <p class="card-text">Period: @joinedChallenge.Challenge.Period</p>
-                                    <p class="card-text">Join Date: @joinedChallenge.JoinDate.ToShortDateString()</p>
-                                    <hr>
-                                    <h4>Instructions:</h4>
-                                    <p>@joinedChallenge.Challenge.Instructions</p>
-                                    <form onsubmit="return confirmLeave()" method="post" asp-page-handler="LeaveChallenge"
-                                        handler="OnPostLeaveChallengeAsync"
-                                        asp-route-challengeId="@joinedChallenge.Challenge.Id">
-                                        <button type="submit" class="btn btn-danger">Leave Challenge</button>
-                                        @Html.AntiForgeryToken()
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                        <form id="unfavoriteForm_@joinedChallenge.Challenge.Id" method="post" asp-page-handler="ToggleFavorite" asp-route-challengeId="@joinedChallenge.Challenge.Id">
+                            <input type="hidden" name="challengeId" value="@joinedChallenge.Challenge.Id" />
+                            <button type="submit" class="btn btn-warning">Unfavorite</button>
+                        </form>
                     }
+                    else
+                    {
+                        <form id="favoriteForm_@joinedChallenge.Challenge.Id" method="post" asp-page-handler="ToggleFavorite" asp-route-challengeId="@joinedChallenge.Challenge.Id">
+                            <input type="hidden" name="challengeId" value="@joinedChallenge.Challenge.Id" />
+                            <button type="submit" class="btn btn-outline-primary">Mark as Favorite</button>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
                 </div>
             </div>
             @if (Model.JoinedChallenges.Count > 2)
@@ -96,5 +121,4 @@
     function confirmLeave() {
         return confirm("Are you sure you want to leave this challenge?");
     }
-    
 </script>

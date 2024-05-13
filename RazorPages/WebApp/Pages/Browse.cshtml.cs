@@ -67,7 +67,5 @@ namespace WebApp.Pages
             return RedirectToPage("./Browse"); 
         }
 
-
-
     }
 }

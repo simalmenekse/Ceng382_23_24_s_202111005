@@ -18,5 +18,7 @@ namespace RazorPages.WebApp.Models
         public ApplicationUser User { get; set; }
 
         public DateTime JoinDate { get; set; }
+                public bool IsFavorite { get; set; }
+
     }
 }

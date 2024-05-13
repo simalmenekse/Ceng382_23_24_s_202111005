@@ -92,7 +92,7 @@
                             <div class="text-center">
                                 <button class="btn btn-primary" onclick="showAll()">Show All</button>
                             </div>
-    
+
                     </form>
                 </div>
             </div>
@@ -134,12 +134,16 @@
         {
             <div class="text-center">
                 <button class="btn btn-primary" onclick="showAll()">Show All</button>
+                        <a class="btn btn-success" href="/AddChallenges">Add Your Own Challenge</a> <!-- Add this line -->
+
             </div>
         }
     </div>
 </div>
 
+
 <script>
+
     function showInstructions(challengeId) {
         var instructionsDiv = document.getElementById('instructions_' + challengeId);
         if (instructionsDiv.style.display === 'none') {
