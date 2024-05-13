@@ -309,6 +309,10 @@
       "PackagePath": "staticwebassets\\photos\\add_challenge.jpg"
     },
     {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\photos\\faqs.jpg",
+      "PackagePath": "staticwebassets\\photos\\faqs.jpg"
+    },
+    {
       "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\photos\\join_page.jpg",
       "PackagePath": "staticwebassets\\photos\\join_page.jpg"
     },

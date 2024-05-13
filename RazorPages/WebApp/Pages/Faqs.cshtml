@@ -1,0 +1,80 @@
+@page
+@model FaqsModel
+@{
+    ViewData["Title"] = "FAQs";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs</title>
+    <style>
+        .accordion {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .accordion-item {
+            background-color: #faf4f4;
+            margin-bottom: 1px;
+        }
+        
+        .accordion-header {
+            background-color: #ffffff;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        
+        .accordion-content {
+            padding: 10px 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"><br>
+        <h1>Frequently Asked Questions</h1><br>
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-header">What is HealthTrack?</div>
+                <div class="accordion-content">HealthTrack is a platform designed to revolutionize how you approach fitness challenges.</div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">How can I join a challenge?</div>
+                <div class="accordion-content">You can browse available challenges and join them directly from the platform.</div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">Is HealthTrack accessible nationwide?</div>
+                <div class="accordion-content">Yes, HealthTrack is accessible to users across the country, allowing you to connect with like-minded individuals and access resources from anywhere.</div>
+            </div>
+                        <div class="accordion-item">
+                <div class="accordion-header">Are there any fees for joining challenges on HealthTrack?</div>
+                <div class="accordion-content">No, joining challenges on HealthTrack is completely free.</div>
+            </div>
+                        <div class="accordion-item">
+                <div class="accordion-header">How do I track my progress in a challenge?</div>
+                <div class="accordion-content">You can track your progress using the tracking tools provided for each challenge, such as logging workouts, meals, or other activities.</div>
+            </div>
+                        <div class="accordion-item">
+                <div class="accordion-header">Can I create my own custom challenges?</div>
+                <div class="accordion-content">Yes, users have the ability to create their own custom challenges on HealthTrack. Simply navigate to the 'Add a Fitness Challenge' section to create and publish your custom challenge.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var accordionItems = document.querySelectorAll('.accordion-item');
+
+            accordionItems.forEach(function (item) {
+                item.addEventListener('click', function () {
+                    // Toggle the display of the content
+                    var content = this.querySelector('.accordion-content');
+                    content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+                });
+            });
+        });
+    </script>
+</body>

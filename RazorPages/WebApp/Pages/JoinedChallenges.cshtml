@@ -63,7 +63,7 @@
                                     <hr>
                                     <h4>Instructions:</h4>
                                     <p>@joinedChallenge.Challenge.Instructions</p>
-                                    <form onsubmit=confirmLeave() method="post" asp-page-handler="LeaveChallenge"
+                                    <form onsubmit="return confirmLeave()" method="post" asp-page-handler="LeaveChallenge"
                                         handler="OnPostLeaveChallengeAsync"
                                         asp-route-challengeId="@joinedChallenge.Challenge.Id">
                                         <button type="submit" class="btn btn-danger">Leave Challenge</button>

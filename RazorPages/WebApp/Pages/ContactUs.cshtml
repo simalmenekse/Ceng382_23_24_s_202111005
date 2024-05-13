@@ -1,0 +1,35 @@
+@page
+@model ContactUsModel
+@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Contact Us</h5>
+                    <form method="post">
+                        <div class="mb-3">
+                            <label asp-for="ContactForm.Name" class="form-label">Your Name</label>
+                            <input asp-for="ContactForm.Name" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="ContactForm.Email" class="form-label">Your Email</label>
+                            <input asp-for="ContactForm.Email" type="email" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="ContactForm.Message" class="form-label">Your Message</label>
+                            <textarea asp-for="ContactForm.Message" class="form-control" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img src="~/photos/contact.jpg" alt="Contact Image" class="img-fluid" style="height: 100%;">
+        </div>
+    </div>
+</div>
