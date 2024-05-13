@@ -257,6 +257,33 @@ namespace WebApp.Data.Migrations
                     b.ToTable("Challenges");
                 });
 
+            modelBuilder.Entity("RazorPages.WebApp.Models.JoinedChallenges", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ChallengeId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("JoinDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ChallengeId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("JoinedChallenges");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -306,6 +333,25 @@ namespace WebApp.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("RazorPages.WebApp.Models.JoinedChallenges", b =>
+                {
+                    b.HasOne("RazorPages.WebApp.Models.Challenge", "Challenge")
+                        .WithMany()
+                        .HasForeignKey("ChallengeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Challenge");
+
+                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

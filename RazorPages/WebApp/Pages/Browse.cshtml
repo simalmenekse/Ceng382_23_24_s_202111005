@@ -6,15 +6,15 @@
 
 @{
     var imagePaths = new List<string>
-    {
-        "/browse_photo_pool/1.jpg",
-        "/browse_photo_pool/2.jpg",
-        "/browse_photo_pool/3.jpg",
-        "/browse_photo_pool/4.jpg",
-        "/browse_photo_pool/5.jpg",
-        "/browse_photo_pool/6.jpg",
-        "/browse_photo_pool/7.jpg",
-    };
+{
+"/browse_photo_pool/1.jpg",
+"/browse_photo_pool/2.jpg",
+"/browse_photo_pool/3.jpg",
+"/browse_photo_pool/4.jpg",
+"/browse_photo_pool/5.jpg",
+"/browse_photo_pool/6.jpg",
+"/browse_photo_pool/7.jpg",
+};
 
     var distinctCategories = Model.Challenges.Select(c => c.Category).Distinct().ToList();
     var distinctDifficultyLevels = Model.Challenges.Select(c => c.DifficultyLevel).Distinct().ToList();
@@ -22,7 +22,7 @@
     var selectedCategory = Request.Query["categoryFilter"].ToString();
     var selectedDifficultyLevel = Request.Query["difficultyFilter"].ToString();
 
-    var filteredChallenges = Model.Challenges.AsEnumerable(); 
+    var filteredChallenges = Model.Challenges.AsEnumerable();
     if (!string.IsNullOrEmpty(selectedCategory))
     {
         filteredChallenges = filteredChallenges.Where(c => c.Category == selectedCategory);
@@ -37,11 +37,18 @@
     if (!string.IsNullOrEmpty(searchQuery))
     {
         filteredChallenges = filteredChallenges.Where(c =>
-            c.Category.Contains(searchQuery) ||
-            c.DifficultyLevel.Contains(searchQuery) ||
-            c.Period.Contains(searchQuery) ||
-            c.Instructions.Contains(searchQuery));
+        c.Category.Contains(searchQuery) ||
+        c.DifficultyLevel.Contains(searchQuery) ||
+        c.Period.Contains(searchQuery) ||
+        c.Instructions.Contains(searchQuery));
     }
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["SuccessMessage"]
+    </div>
 }
 <br>
 <div class="album py-5 bg-light">
@@ -87,11 +94,11 @@
         <div class="row">
             @foreach (var challenge in filteredChallenges)
             {
-                var imagePath = imagePaths[challenge.Id % imagePaths.Count]; 
+                var imagePath = imagePaths[challenge.Id % imagePaths.Count];
 
                 <div class="col-md-4">
                     <div class="card mb-4 box-shadow">
-                        <img class="card-img-top" src="@imagePath" alt="Card image cap"> 
+                        <img class="card-img-top" src="@imagePath" alt="Card image cap">
                         <div class="card-body">
                             <h3 class="card-title">@challenge.Category</h3>
                             <p class="card-text">Difficulty Level: @challenge.DifficultyLevel</p>
@@ -99,8 +106,12 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <button class="btn btn-outline-secondary"
-                                        onclick="showInstructions('@challenge.Id')">View Details</button>
-                                    <button class="btn btn-primary" onclick="joinChallenge('@challenge.Id')">Join</button>
+                                        onclick="showInstructions('@challenge.Id')">View Details</button>&nbsp;
+                                    <form id="joinForm_@challenge.Id" asp-page-handler="JoinChallenge" method="post">
+                                        <input type="hidden" name="challengeId" value="@challenge.Id" />
+                                        <button type="button" class="btn btn-primary"
+                                            onclick="joinChallenge('@challenge.Id')">Join</button>
+                                    </form>
                                 </div>
                             </div>
                             <div id="instructions_@challenge.Id" style="display:none;">
@@ -133,15 +144,17 @@
         }
     }
 
-    function joinChallenge(challengeId) {
-        alert('You have joined the challenge with ID: ' + challengeId);
-    }
-
     function showAll() {
         document.getElementById("categoryFilter").value = "";
         document.getElementById("difficultyFilter").value = "";
         window.location.href = "./Browse";
     }
+
+    function joinChallenge(challengeId) {
+        var formId = "joinForm_" + challengeId;
+        document.getElementById(formId).submit();
+    }
+
 </script>
-</div> 
-</div> 
+</div>
+</div>

@@ -53,6 +53,18 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\joined_photo_pool\\dynamic_pool\\1.jpg",
+      "PackagePath": "staticwebassets\\joined_photo_pool\\dynamic_pool\\1.jpg"
+    },
+    {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\joined_photo_pool\\dynamic_pool\\2.jpg",
+      "PackagePath": "staticwebassets\\joined_photo_pool\\dynamic_pool\\2.jpg"
+    },
+    {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\joined_photo_pool\\pexels-andres-ayrton-6550845.jpg",
+      "PackagePath": "staticwebassets\\joined_photo_pool\\pexels-andres-ayrton-6550845.jpg"
+    },
+    {
       "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\js\\rooms.js",
       "PackagePath": "staticwebassets\\js\\rooms.js"
     },
@@ -295,6 +307,10 @@
     {
       "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\photos\\add_challenge.jpg",
       "PackagePath": "staticwebassets\\photos\\add_challenge.jpg"
+    },
+    {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\photos\\join_page.jpg",
+      "PackagePath": "staticwebassets\\photos\\join_page.jpg"
     },
     {
       "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\photos\\main_page.png",
