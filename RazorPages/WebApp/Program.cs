@@ -15,11 +15,21 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-        .AddEntityFrameworkStores<ApplicationDbContext>()
-        .AddSignInManager<SignInManager<ApplicationUser>>();
 
-
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+{
+    options.User.RequireUniqueEmail = true;
+    options.Password.RequireDigit = true;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequireNonAlphanumeric = true;
+    options.Password.RequiredLength = 6;
+    options.SignIn.RequireConfirmedEmail = false;
+})
+.AddEntityFrameworkStores<ApplicationDbContext>()
+.AddDefaultUI()
+.AddDefaultTokenProviders()
+.AddSignInManager<SignInManager<ApplicationUser>>();
 
 builder.Services.AddRazorPages();
 
@@ -44,19 +54,13 @@ app.UseRouting();
 app.UseAuthentication(); 
 app.UseAuthorization();
 
-// Configure endpoints
-app.MapGet("/", ctx =>
-{
-    if (ctx.User.Identity.IsAuthenticated)
-    {
-        ctx.Response.Redirect("/Index");
-    }
-    else
-    {
-        ctx.Response.Redirect("/Identity/Account/Login");
-    }
-    return Task.CompletedTask;
-});
+app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
+            endpoints.MapRazorPages();
+        });
 
 app.MapRazorPages();
 

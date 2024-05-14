@@ -13,21 +13,23 @@ namespace WebApp.Data
 
         public DbSet<Challenge> Challenges { get; set; }
         public DbSet<JoinedChallenges> JoinedChallenges { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<JoinedChallenges>()
-                .HasOne(uc => uc.Challenge)
-                .WithMany()
-                .HasForeignKey(uc => uc.ChallengeId);
-
-            modelBuilder.Entity<JoinedChallenges>()
-                .HasOne(uc => uc.User)
-                .WithMany()
-                .HasForeignKey(uc => uc.UserId);
-
             base.OnModelCreating(modelBuilder);
-        }
 
+            modelBuilder.Entity<Comment>()
+                .HasOne(c => c.Challenge)
+                .WithMany(ch => ch.Comments)
+                .HasForeignKey(c => c.ChallengeId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Comment>()
+                .HasOne(c => c.User)
+                .WithMany()
+                .HasForeignKey(c => c.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+        }
     }
 }

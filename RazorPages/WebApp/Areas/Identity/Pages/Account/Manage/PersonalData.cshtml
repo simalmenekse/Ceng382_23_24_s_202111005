@@ -4,41 +4,8 @@
     ViewData["Title"] = "Personal Data";
     ViewData["ActivePage"] = ManageNavPages.PersonalData;
 }
-
-
-<div class="container-fluid">
     <div class="row">
-        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
-            <div class="position-sticky"><br>
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile"
-                            asp-page="./Index">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link @ManageNavPages.EmailNavClass(ViewContext)" id="email"
-                            asp-page="./Email">Email</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password"
-                            asp-page="./ChangePassword">Password</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)" id="two-factor"
-                            asp-page="./TwoFactorAuthentication">Two-factor authentication</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data"
-                            asp-page="./PersonalData">Personal data</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Index">Go Back</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <br>
+        <main class="col-md-16">
             <h3>@ViewData["Title"]</h3>
             <div class="col-md-6">
                 <p>Your account contains personal data that you have given us. This page allows you to download or
@@ -49,23 +16,11 @@
                 </p>
                 <form id="download-data" asp-page="DownloadPersonalData" method="post">
                     <button class="btn btn-primary" type="submit">Download</button>
-                </form>
-                <p>
-                    <a id="delete" asp-page="DeletePersonalData" class="btn btn-danger">Delete</a>
-                </p>
+                </form><br>
+                <a id="delete" asp-page="DeletePersonalData" class="btn btn-danger">Delete</a>
             </div>
-
-
-
-
-
-
-
-
-
         </main>
     </div>
-</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

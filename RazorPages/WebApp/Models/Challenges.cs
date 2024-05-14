@@ -13,6 +13,8 @@ namespace RazorPages.WebApp.Models
         public string DifficultyLevel { get; set; }
         public string Instructions { get; set; }
 
+        public List<Comment> Comments { get; set; }
+
 
     }
 

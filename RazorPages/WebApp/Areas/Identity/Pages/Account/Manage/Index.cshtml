@@ -2,48 +2,44 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Profile";
-    ViewData["ActivePage"] = "Index";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+
 }
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
-<br>
-<div class="container-fluid">
+
+<head>
+    <style>
+        .profile-picture-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-picture {
+            width: 300px; /* Adjust width and height as needed */
+            height: 300px;
+            border-radius: 50%; /* Ensure it's a circle */
+        }
+
+        .profile-picture-default {
+            width: 400px; 
+            height: 400px;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #999; 
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+
     <div class="row">
-        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
-            <div class="position-sticky"><br>
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile"
-                            asp-page="./Index">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link @ManageNavPages.EmailNavClass(ViewContext)" id="email"
-                            asp-page="./Email">Email</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password"
-                            asp-page="./ChangePassword">Password</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)" id="two-factor"
-                            asp-page="./TwoFactorAuthentication">Two-factor authentication</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data"
-                            asp-page="./PersonalData">Personal data</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Index">Go Back</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <br />
+        <main class="col-md-16">
             <h3>@ViewData["Title"]</h3>
             <partial name="_StatusMessage" for="StatusMessage" />
             <div class="row">
@@ -76,7 +72,29 @@
                             class="w-100 btn btn-lg btn-primary">Save</button>
                     </form>
                 </div>
+                <div class="col-md-6">
+                    <div class="profile-picture-container">
+                        @if (Model.Input.ProfilePicture != null)
+                        {
+                            using (var memoryStream = new MemoryStream())
+                            {
+                                Model.Input.ProfilePicture.CopyTo(memoryStream);
+                                var imageData = memoryStream.ToArray();
+                                var imageBase64 = Convert.ToBase64String(imageData);
+                                var imageSrc = $"data:image;base64,{imageBase64}";
+                                <img src="@imageSrc" class="img-fluid rounded-circle profile-picture" alt="Profile Picture" />
+                            }
+                        }
+                        else
+                        {
+                            <div class="profile-picture-default">
+                                <span>No profile picture uploaded</span>
+                            </div>
+                        }
+                        <span asp-validation-for="Input.ProfilePicture" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
-</div>
+

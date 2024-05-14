@@ -4,7 +4,7 @@ using System.IO;
 
 public class ApplicationUser : IdentityUser
 {
-    private static byte[] GetDefaultProfilePicture()
+    public static byte[] GetDefaultProfilePicture()
     {
         // Replace "default_profile_picture.jpg" with the path to your actual image file
         byte[] defaultPictureBytes = File.ReadAllBytes("wwwroot/default_profile_picture.jpg");

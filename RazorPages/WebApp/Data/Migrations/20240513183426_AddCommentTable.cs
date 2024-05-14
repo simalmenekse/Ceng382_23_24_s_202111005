@@ -6,20 +6,17 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace WebApp.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class AddJoinedChallengesTable : Migration
+    public partial class AddCommentTable : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-
-            
+           
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-        
-
         }
     }
 }

@@ -65,18 +65,31 @@ namespace WebApp.Areas.Identity.Pages.Account.Manage
         }
 
         private async Task LoadAsync(ApplicationUser user)
-        {
-            var userName = await _userManager.GetUserNameAsync(user);
-            var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
+{
+    var userName = await _userManager.GetUserNameAsync(user);
+    var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
 
-            Username = userName;
+    Username = userName;
 
-            Input = new InputModel
-            {
-                PhoneNumber = phoneNumber,
-                Bio = user.Bio // Load user's bio
-            };
-        }
+    Input = new InputModel
+    {
+        PhoneNumber = phoneNumber,
+        Bio = user.Bio,
+    };
+
+    // If user has a profile picture, create an IFormFile object from the byte array
+    if (user.ProfilePicture != null && user.ProfilePicture.Length > 0)
+    {
+        Input.ProfilePicture = new FormFile(new MemoryStream(user.ProfilePicture), 0, user.ProfilePicture.Length, "ProfilePicture", "profile_picture.jpg");
+    }
+    else
+    {
+        // If user doesn't have a profile picture, use the default profile picture
+        Input.ProfilePicture= new FormFile(new MemoryStream(ApplicationUser.GetDefaultProfilePicture()), 0, ApplicationUser.GetDefaultProfilePicture().Length, "ProfilePicture", "default_profile_picture.jpg");
+    }
+}
+
+
 
         public async Task<IActionResult> OnGetAsync()
         {
@@ -91,48 +104,54 @@ namespace WebApp.Areas.Identity.Pages.Account.Manage
         }
 
         public async Task<IActionResult> OnPostAsync()
+{
+    var user = await _userManager.GetUserAsync(User);
+    if (user == null)
+    {
+        return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+    }
+
+    if (!ModelState.IsValid)
+    {
+        await LoadAsync(user);
+        return Page();
+    }
+
+    var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
+    if (Input.PhoneNumber != phoneNumber)
+    {
+        var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
+        if (!setPhoneResult.Succeeded)
         {
-            var user = await _userManager.GetUserAsync(User);
-            if (user == null)
-            {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
-            }
-
-            if (!ModelState.IsValid)
-            {
-                await LoadAsync(user);
-                return Page();
-            }
-
-            var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-            if (Input.PhoneNumber != phoneNumber)
-            {
-                var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
-                if (!setPhoneResult.Succeeded)
-                {
-                    StatusMessage = "Unexpected error when trying to set phone number.";
-                    return RedirectToPage();
-                }
-            }
-
-            // Update user's bio
-            user.Bio = Input.Bio;
-
-            // Handle profile picture update
-            if (Input.ProfilePicture != null && Input.ProfilePicture.Length > 0)
-            {
-                using (var memoryStream = new MemoryStream())
-                {
-                    await Input.ProfilePicture.CopyToAsync(memoryStream);
-                    user.ProfilePicture = memoryStream.ToArray();
-                }
-            }
-
-            await _userManager.UpdateAsync(user);
-
-            await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = "Your profile has been updated";
+            StatusMessage = "Unexpected error when trying to set phone number.";
             return RedirectToPage();
         }
+    }
+
+    // Update user's bio
+    user.Bio = Input.Bio;
+
+    // Handle profile picture update
+    if (Input.ProfilePicture != null && Input.ProfilePicture.Length > 0)
+    {
+        using (var memoryStream = new MemoryStream())
+        {
+            await Input.ProfilePicture.CopyToAsync(memoryStream);
+            user.ProfilePicture = memoryStream.ToArray();
+        }
+    }
+    else
+    {
+        // If user wants to remove profile picture, set it to null
+        user.ProfilePicture = null;
+    }
+
+    await _userManager.UpdateAsync(user);
+
+    await _signInManager.RefreshSignInAsync(user);
+    StatusMessage = "Your profile has been updated";
+    return RedirectToPage();
+}
+
     }
 }

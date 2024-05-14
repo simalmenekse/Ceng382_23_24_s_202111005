@@ -74,7 +74,7 @@ namespace WebApp.Areas.Identity.Pages.Account.Manage
         }
 
         private async Task LoadAsync(ApplicationUser user)
-        {
+        {   
             var email = await _userManager.GetEmailAsync(user);
             Email = email;
 
