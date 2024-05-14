@@ -3,14 +3,15 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using RazorPages.WebApp.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Security.Claims;
 using WebApp.Data;
 using Microsoft.AspNetCore.Authorization;
+using System;
 
 namespace WebApp.Pages
 {
-
     [Authorize]
     public class BrowseModel : PageModel
     {
@@ -21,35 +22,33 @@ namespace WebApp.Pages
             _context = context;
         }
 
-        [BindProperty]
-        public int ChallengeId { get; set; }
+        public string UserId { get; private set; }
 
-        public List<Challenge> Challenges { get; set; } // Add this property
+        [BindProperty]
+        public List<Challenge> Challenges { get; set; }
 
         public async Task<IActionResult> OnGetAsync()
         {
-            // Fetch the list of challenges
+            UserId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
             Challenges = await _context.Challenges.ToListAsync();
+
             return Page();
         }
+
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> OnPostJoinChallengeAsync(int challengeId)
         {
             if (!User.Identity.IsAuthenticated)
             {
-                // If the user is not authenticated, redirect to the login page
                 return RedirectToPage("/Account/Login", new { area = "Identity" });
             }
 
-            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
-            if (userIdClaim == null)
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userId == null)
             {
-                // If the user's ID claim is not found, handle the error (log, return error response, etc.)
-                // For now, just return a generic error page
-                return RedirectToPage("/Error");
+                return Unauthorized();
             }
-
-            var userId = userIdClaim.Value;
 
             var joinedChallenge = new JoinedChallenges
             {
@@ -63,8 +62,36 @@ namespace WebApp.Pages
 
             TempData["SuccessMessage"] = "You have successfully joined the challenge!";
 
+            return RedirectToPage("./Browse");
+        }
 
-            return RedirectToPage("./Browse"); 
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> OnPostAddCommentAndRatingAsync(int challengeId, int rating, string content)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Page(); 
+            }
+
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userId == null)
+            {
+                return Unauthorized();
+            }
+
+            var newComment = new Comment
+            {
+                UserId = userId,
+                ChallengeId = challengeId,
+                Rating = rating,
+                Content = content,
+                CreatedAt = DateTime.Now
+            };
+
+            _context.Comments.Add(newComment);
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("./Browse");
         }
 
     }
