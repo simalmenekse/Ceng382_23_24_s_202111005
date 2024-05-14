@@ -114,7 +114,9 @@
                                         <button type="button" class="btn btn-primary"
                                             onclick="joinChallenge('@challenge.Id')">Join</button>
                                     </form>
+                                    
                                 </div>
+                                
                             </div>
                             <form id="commentForm_@challenge.Id" method="post" asp-page-handler="AddCommentAndRating">
                                 <input type="hidden" id="ChallengeId" name="ChallengeId" value="@challenge.Id" />
@@ -133,8 +135,9 @@
                                     <textarea class="form-control" id="comment" name="Content" rows="2"></textarea>
                                 </div>
                                 <button type="button" class="btn btn-primary"
-                                    onclick="submitComment('@challenge.Id')">Submit</button>
-                            </form>
+                                    onclick="submitComment('@challenge.Id')">Submit</button>                                    
+                            </form> <br>
+                            <button class="btn btn-info" onclick='location.href="@Url.Page("./ChallengeComments", new { id = challenge.Id })"'>View Comments</button>
 
 
                             <div id="instructions_@challenge.Id" style="display:none;">
