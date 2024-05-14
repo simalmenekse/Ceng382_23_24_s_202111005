@@ -23,23 +23,27 @@ namespace WebApp.Pages
 
         public List<JoinedChallenges> JoinedChallenges { get; set; }
 
-        public async Task OnGetAsync(bool showFavorites = false)
-        {
-            if (showFavorites)
-            {
-                var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-                JoinedChallenges = await _context.JoinedChallenges
-                    .Include(j => j.Challenge)
-                    .Where(j => j.UserId == userId && j.IsFavorite)
-                    .ToListAsync();
-            }
-            else
-            {
-                JoinedChallenges = await _context.JoinedChallenges
-                    .Include(j => j.Challenge)
-                    .ToListAsync();
-            }
-        }
+public async Task OnGetAsync(bool showFavorites = false)
+{
+    var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+    if (userId == null)
+    {
+        // Handle the case when user is not authenticated
+        RedirectToPage("/Account/Login", new { area = "Identity" });
+    }
+
+    IQueryable<JoinedChallenges> query = _context.JoinedChallenges
+        .Include(j => j.Challenge)
+        .Where(j => j.UserId == userId);
+
+    if (showFavorites)
+    {
+        query = query.Where(j => j.IsFavorite);
+    }
+
+    JoinedChallenges = await query.ToListAsync();
+}
+
 
         [BindProperty]
         public int ChallengeId { get; set; }
