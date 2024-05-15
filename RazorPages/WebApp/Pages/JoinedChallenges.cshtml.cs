@@ -28,7 +28,6 @@ public async Task OnGetAsync(bool showFavorites = false)
     var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
     if (userId == null)
     {
-        // Handle the case when user is not authenticated
         RedirectToPage("/Account/Login", new { area = "Identity" });
     }
 

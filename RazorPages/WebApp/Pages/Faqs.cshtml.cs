@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace WebApp.Pages
@@ -10,6 +11,7 @@ namespace WebApp.Pages
         public string Answer { get; set; }
     }
 
+    [Authorize]
     public class FaqsModel : PageModel
     {
         public List<FaqItem> FaqItems { get; set; }
