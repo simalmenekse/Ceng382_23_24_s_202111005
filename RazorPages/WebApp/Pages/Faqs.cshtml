@@ -10,7 +10,7 @@
     <title>FAQs</title>
     <style>
         .accordion {
-            border: 1px solid #ccc;
+            border: 1px solid #dedbdb;
             border-radius: 5px;
             overflow: hidden;
             margin-bottom: 20px;
@@ -70,7 +70,6 @@
 
             accordionItems.forEach(function (item) {
                 item.addEventListener('click', function () {
-                    // Toggle the display of the content
                     var content = this.querySelector('.accordion-content');
                     content.style.display = (content.style.display === 'block') ? 'none' : 'block';
                 });

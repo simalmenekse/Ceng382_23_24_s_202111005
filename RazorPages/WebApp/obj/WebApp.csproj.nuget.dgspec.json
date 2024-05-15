@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\WebApp.csproj": {}
+    "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\Webapp\\WebApp.csproj": {}
   },
   "projects": {
-    "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\WebApp.csproj": {
+    "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\Webapp\\WebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\WebApp.csproj",
+        "projectUniqueName": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\Webapp\\WebApp.csproj",
         "projectName": "WebApp",
-        "projectPath": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\WebApp.csproj",
+        "projectPath": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\Webapp\\WebApp.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\obj\\",
+        "outputPath": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\Webapp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
