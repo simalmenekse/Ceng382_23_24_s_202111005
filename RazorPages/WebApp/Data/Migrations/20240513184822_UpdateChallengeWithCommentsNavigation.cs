@@ -7,13 +7,7 @@ namespace WebApp.Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
 
-            migrationBuilder.AddForeignKey(
-                name: "FK_Challenges_Comments_ChallengeId",
-                table: "Challenges",
-                column: "ChallengeId",
-                principalTable: "Comments",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

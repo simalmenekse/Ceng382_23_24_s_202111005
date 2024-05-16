@@ -1,0 +1,63 @@
+@page
+@model LeaderboardModel
+@{
+    ViewData["Title"] = "Leaderboard";
+}
+
+<style>
+    .profile-picture {
+        border-radius: 50%;
+    }
+</style>
+
+<div class="container"><br>
+    <h2 class="mb-4">Leaderboard</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>User Name</th>
+                <th>Completed Challenges</th>
+                <th>Profile Picture</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Leaderboard != null && Model.Leaderboard.Any())
+            {
+                @for (var i = 0; i < Model.Leaderboard.Count; i++)
+                {
+                    var user = Model.Leaderboard[i];
+                    <tr>
+                        <td>@(i + 1)</td>
+                        <td>@user.UserName</td>
+                        <td>@user.CompletedChallengesCount</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(user.ProfilePictureUrl))
+                            {
+                                <img src="@user.ProfilePictureUrl" alt="Profile Picture" class="profile-picture" width="50" height="50" />
+                            }
+                            else
+                            {
+                                <span>No profile picture available</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4">No data available</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-center">
+        <div class="overflow-hidden" style="max-height: 30vh;">
+            <div class="container px-5">
+                <img src="/photos/leaderboard.jpg" class="img-fluid border rounded-3 shadow-lg mb-4 centered-images" alt="Example image" width="700" height="500" loading="lazy">
+            </div>
+        </div>
+    </div>
+</div>

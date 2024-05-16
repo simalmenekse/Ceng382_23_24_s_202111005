@@ -22,26 +22,37 @@ namespace WebApp.Pages
         }
 
         public List<JoinedChallenges> JoinedChallenges { get; set; }
+        public int CompletedChallengesCount { get; set; }
 
-public async Task OnGetAsync(bool showFavorites = false)
-{
-    var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-    if (userId == null)
-    {
-        RedirectToPage("/Account/Login", new { area = "Identity" });
-    }
 
-    IQueryable<JoinedChallenges> query = _context.JoinedChallenges
-        .Include(j => j.Challenge)
-        .Where(j => j.UserId == userId);
+        public async Task OnGetAsync(bool showFavorites = false)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId == null)
+            {
+                RedirectToPage("/Account/Login", new { area = "Identity" });
+            }
 
-    if (showFavorites)
-    {
-        query = query.Where(j => j.IsFavorite);
-    }
+            IQueryable<JoinedChallenges> query = _context.JoinedChallenges
+                .Include(j => j.Challenge)
+                .Where(j => j.UserId == userId);
 
-    JoinedChallenges = await query.ToListAsync();
-}
+            if (showFavorites)
+            {
+                query = query.Where(j => j.IsFavorite);
+            }
+
+            JoinedChallenges = await query.ToListAsync();
+            CompletedChallengesCount = JoinedChallenges.Count(j => j.IsCompleted);
+
+            var userJoinedChallenge = await _context.JoinedChallenges.FirstOrDefaultAsync(j => j.UserId == userId);
+            if (userJoinedChallenge != null)
+            {
+                userJoinedChallenge.CompletedChallengesCount = CompletedChallengesCount;
+                await _context.SaveChangesAsync();
+            }
+
+        }
 
 
         [BindProperty]
@@ -102,5 +113,29 @@ public async Task OnGetAsync(bool showFavorites = false)
             // Redirect back to the JoinedChallenges page with the appropriate filter
             return RedirectToPage("./JoinedChallenges", new { showFavorites = showFavorites });
         }
+
+        public async Task<IActionResult> OnPostToggleCompletionAsync(int challengeId, bool showFavorites)
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (userId == null)
+            {
+                // If the user ID is not found, redirect to an error page
+                return RedirectToPage("/Error");
+            }
+
+            var joinedChallenge = await _context.JoinedChallenges
+                .FirstOrDefaultAsync(j => j.ChallengeId == challengeId && j.UserId == userId);
+
+            if (joinedChallenge != null)
+            {
+                joinedChallenge.IsCompleted = !joinedChallenge.IsCompleted;
+                await _context.SaveChangesAsync();
+            }
+
+            // Redirect back to the JoinedChallenges page with the appropriate filter
+            return RedirectToPage("./JoinedChallenges", new { showFavorites = showFavorites });
+        }
+
     }
 }

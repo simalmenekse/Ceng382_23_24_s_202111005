@@ -10,7 +10,9 @@
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-T/L5AJkk8bPwPztpfGM5TpXWxSNFLL5s4rmBT3mGP2QWCQoQHZQgsh+GJG07lXsIIeM8QUGodrxWQd8DqhTOkg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-T/L5AJkk8bPwPztpfGM5TpXWxSNFLL5s4rmBT3mGP2QWCQoQHZQgsh+GJG07lXsIIeM8QUGodrxWQd8DqhTOkg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
 
@@ -19,84 +21,94 @@
 </head>
 
 <body>
-        @if (!Context.Request.Path.StartsWithSegments("/Identity/Account/Login") && !Context.Request.Path.StartsWithSegments("/Identity/Account/Register") && !Context.Request.Path.StartsWithSegments("/Identity/Account/ForgotPassword") && !Context.Request.Path.StartsWithSegments("/Identity/Account/ResendEmailConfirmation") )
+    @if (!Context.Request.Path.StartsWithSegments("/Identity/Account/Login") &&
+    !Context.Request.Path.StartsWithSegments("/Identity/Account/Register") &&
+    !Context.Request.Path.StartsWithSegments("/Identity/Account/ForgotPassword") &&
+    !Context.Request.Path.StartsWithSegments("/Identity/Account/ResendEmailConfirmation"))
     {
-    <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container">
-                <a class="navbar-brand" href="~/Index"><img src="~/svgs/fitness_logo.svg" alt="HealthTrack Icon"
-                        height="30">&nbsp;HealthTrack</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="~/Index">Home</a>
-                        </li>
+        <header>
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container">
+                    <a class="navbar-brand" href="~/Index"><img src="~/svgs/fitness_logo.svg" alt="HealthTrack Icon"
+                            height="30">&nbsp;HealthTrack</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="~/Index">Home</a>
+                            </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Challenges
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="~/AddChallenges">Add a Fitness Challenge</a></li>
-                                <li><a class="dropdown-item" href="~/Browse">Browse Challenges</a></li>
-                                <li><a class="dropdown-item" href="~/JoinedChallenges">Joined Challenges</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="/Faqs">Learn more</a></li>
-                            </ul>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Challenges
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="~/AddChallenges">Add a Fitness Challenge</a></li>
+                                    <li><a class="dropdown-item" href="~/Browse">Browse Challenges</a></li>
+                                    <li><a class="dropdown-item" href="~/JoinedChallenges">Joined Challenges</a></li>
+                                    <li><a class="dropdown-item" href="~/LeaderBoard">See the Leader Board</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="/Faqs">Learn more</a></li>
+                                </ul>
 
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index">Account</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/About">About</a>
-                        </li>
-                                                <li class="nav-item">
-                            <a class="nav-link" href="/ContactUs">Contact Us</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex" asp-page="./Browse" method="get">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-                            name="searchQuery">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>&nbsp;
-                    <form method="post" asp-area="Identity" asp-page="/Account/Logout"
-                        asp-route-returnUrl="@Url.Page("/Account/Login", new { area = "Identity" })">
-                        <button type="submit" class="btn btn-danger"
-                            onclick="return confirm('Are you sure you want to logout?')">Logout</button>
-                    </form>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index">Account</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/About">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/ContactUs">Contact Us</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex" asp-page="./Browse" method="get">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                                name="searchQuery">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>&nbsp;
+                        <form method="post" asp-area="Identity" asp-page="/Account/Logout"
+                            asp-route-returnUrl="@Url.Page("/Account/Login", new { area = "Identity" })">
+                            <button type="submit" class="btn btn-danger"
+                                onclick="return confirm('Are you sure you want to logout?')">Logout</button>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </header>
+            </nav>
+        </header>
     }
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-        @if (!Context.Request.Path.StartsWithSegments("/Identity/Account/Login") && !Context.Request.Path.StartsWithSegments("/Identity/Account/Register") && !Context.Request.Path.StartsWithSegments("/Identity/Account/ForgotPassword") && !Context.Request.Path.StartsWithSegments("/Identity/Account/ResendEmailConfirmation") )
+    @if (!Context.Request.Path.StartsWithSegments("/Identity/Account/Login") &&
+    !Context.Request.Path.StartsWithSegments("/Identity/Account/Register") &&
+    !Context.Request.Path.StartsWithSegments("/Identity/Account/ForgotPassword") &&
+    !Context.Request.Path.StartsWithSegments("/Identity/Account/ResendEmailConfirmation"))
     {
-    <div class="container">
-        <footer class="py-3 my-4">
-            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-                <li class="nav-item"><a href="/Browse" class="nav-link px-2 text-body-secondary">Challenges</a></li>
-                <li class="nav-item"><a href="/ContactUs" class="nav-link px-2 text-body-secondary">Contact Us</a></li>
-                <li class="nav-item"><a href="/Faqs" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-                <li class="nav-item"><a href="/About" class="nav-link px-2 text-body-secondary">About</a></li>
-            </ul>
-            <p class="text-center text-body-secondary">© 2024 HealthTrack, Inc</p>
-        </footer>
-    </div>
-}
+        <div class="container">
+            <footer class="py-3 my-4">
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+                    <li class="nav-item"><a href="/Browse" class="nav-link px-2 text-body-secondary">Challenges</a></li>
+                    <li class="nav-item"><a href="/LeaderBoard" class="nav-link px-2 text-body-secondary">LeaderBoard</a>
+                    </li>
+
+                    <li class="nav-item"><a href="/ContactUs" class="nav-link px-2 text-body-secondary">Contact Us</a></li>
+                    <li class="nav-item"><a href="/Faqs" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+                    <li class="nav-item"><a href="/About" class="nav-link px-2 text-body-secondary">About</a></li>
+                </ul>
+                <p class="text-center text-body-secondary">© 2024 HealthTrack, Inc</p>
+            </footer>
+        </div>
+    }
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

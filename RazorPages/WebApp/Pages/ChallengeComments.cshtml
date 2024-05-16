@@ -12,14 +12,14 @@
             </div>
             <div class="text-right">
                 <h3>Average Rating</h3>
-                <div class="d-flex align-items-center" style="font-size: 24px;"> <!-- Adjust font size here -->
+                <div class="d-flex align-items-center" style="font-size: 24px;">
                     @{
                         var averageRating = Model.AverageRating;
                         for (var i = 1; i <= 5; i++)
                         {
                             if (averageRating >= i)
                             {
-                                <span>&#9733;</span> <!-- Full star -->
+                                <span>&#9733;</span>
                             }
                             else if (averageRating > i - 1 && averageRating < i)
                             {
@@ -36,7 +36,7 @@
             </div>
         </div>
         <hr class="my-4">
-        <h2 style="color: rgb(137, 137, 215)" class="font-weight-bold">Comments and Ratings</h2><br>
+        <h2 class="font-weight-bold">Comments and Ratings</h2><br>
         <div class="row">
             @foreach (var comment in Model.Comments)
             {
