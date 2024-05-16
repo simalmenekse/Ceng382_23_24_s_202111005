@@ -18,18 +18,8 @@ namespace WebApp.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            
 
-            modelBuilder.Entity<Comment>()
-                .HasOne(c => c.Challenge)
-                .WithMany(ch => ch.Comments)
-                .HasForeignKey(c => c.ChallengeId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            modelBuilder.Entity<Comment>()
-                .HasOne(c => c.User)
-                .WithMany()
-                .HasForeignKey(c => c.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

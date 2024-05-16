@@ -25,24 +25,47 @@ namespace WebApp.Pages
         }
 
         public IActionResult OnPost()
+{
+    if (!ModelState.IsValid)
+    {
+        // Log ModelState errors
+        foreach (var modelState in ModelState.Values)
         {
-            if (!ModelState.IsValid)
+            foreach (var error in modelState.Errors)
             {
-                return Page();
+                Console.WriteLine(error.ErrorMessage);
             }
-
-            if (Challenge != null)
-            {
-                _context.Challenges.Add(Challenge);
-                _context.SaveChanges();
-                ViewData["SuccessMessage"] = "Challenge successfully added!";
-            }
-            else
-            {
-                ViewData["ErrorMessage"] = "Challenge object is null.";
-            }
-
-            return Page();
         }
+        return Page();
+    }
+
+    try
+    {
+        // Log Challenge object to check if it's properly populated
+        Console.WriteLine($"Category: {Challenge.Category}");
+        Console.WriteLine($"Period: {Challenge.Period}");
+        Console.WriteLine($"Difficulty Level: {Challenge.DifficultyLevel}");
+        Console.WriteLine($"Instructions: {Challenge.Instructions}");
+        
+        if (Challenge != null)
+        {
+            _context.Challenges.Add(Challenge);
+            _context.SaveChanges();
+            ViewData["SuccessMessage"] = "Challenge successfully added!";
+        }
+        else
+        {
+            ViewData["ErrorMessage"] = "Challenge object is null.";
+        }
+    }
+    catch (Exception ex)
+    {
+        // Log any exceptions that occur during save operation
+        Console.WriteLine($"Exception: {ex.Message}");
+        ViewData["ErrorMessage"] = "An error occurred while adding the challenge. Please try again later.";
+    }
+
+    return Page();
+}
     }
 }

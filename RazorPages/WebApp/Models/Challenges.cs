@@ -1,6 +1,9 @@
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc;
+
 
 namespace RazorPages.WebApp.Models
 {
@@ -12,10 +15,5 @@ namespace RazorPages.WebApp.Models
         public string Period { get; set; }
         public string DifficultyLevel { get; set; }
         public string Instructions { get; set; }
-
-        public List<Comment> Comments { get; set; }
-
-
     }
-
 }
