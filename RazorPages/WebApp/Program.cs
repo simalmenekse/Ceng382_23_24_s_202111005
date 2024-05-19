@@ -37,7 +37,6 @@ app.UseRouting();
 app.UseAuthentication(); 
 app.UseAuthorization();
 
-// Configure endpoints
 app.MapGet("/", ctx =>
 {
     if (ctx.User.Identity.IsAuthenticated)

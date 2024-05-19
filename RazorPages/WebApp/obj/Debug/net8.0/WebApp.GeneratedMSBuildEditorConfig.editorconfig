@@ -194,6 +194,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/University/CENG 328 - Web Development/Ceng_323_23_24_s_202111005/RazorPages/WebApp/Pages/Reservation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVzZXJ2YXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/University/CENG 328 - Web Development/Ceng_323_23_24_s_202111005/RazorPages/WebApp/Pages/ReservationShow.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVzZXJ2YXRpb25TaG93LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/University/CENG 328 - Web Development/Ceng_323_23_24_s_202111005/RazorPages/WebApp/Pages/Rooms.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9vbXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
