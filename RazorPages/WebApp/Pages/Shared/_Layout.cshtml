@@ -24,7 +24,9 @@
     @if (!Context.Request.Path.StartsWithSegments("/Identity/Account/Login") &&
     !Context.Request.Path.StartsWithSegments("/Identity/Account/Register") &&
     !Context.Request.Path.StartsWithSegments("/Identity/Account/ForgotPassword") &&
-    !Context.Request.Path.StartsWithSegments("/Identity/Account/ResendEmailConfirmation"))
+    !Context.Request.Path.StartsWithSegments("/Identity/Account/ForgotPasswordConfirmation") &&
+    !Context.Request.Path.StartsWithSegments("/Identity/Account/ResendEmailConfirmation")
+    )
     {
         <header>
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
