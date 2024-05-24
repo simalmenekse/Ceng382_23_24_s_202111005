@@ -11,14 +11,14 @@
                 width="700" height="600" loading="lazy">
             <h1 class="text-center">Add Room to Database</h1>
 
-            <form method="post">
+            <form method="post" id="roomForm" onsubmit="return validateForm()">
                 <div class="mb-3">
                     <label for="roomName" class="form-label">Room Name:</label>
-                    <input type="text" class="form-control" id="roomName" name="RoomName" />
+                    <input type="text" class="form-control" id="roomName" name="RoomName" required />
                 </div>
                 <div class="mb-3">
                     <label for="capacity" class="form-label">Capacity:</label>
-                    <input type="number" class="form-control" id="capacity" name="Capacity" min="1" />
+                    <input type="number" class="form-control" id="capacity" name="Capacity" min="1" required />
                     <small id="capacityError" class="text-danger" style="display: none;">Capacity must be greater than
                         0.</small>
                 </div>
@@ -26,5 +26,6 @@
             </form>
         </div>
     </div>
-</div <script src="~/js/rooms.js" asp-append-version="true">
+</div>
+<script src="~/js/rooms.js" asp-append-version="true">
 </script>

@@ -12,19 +12,21 @@
                 width="700" height="200" loading="lazy">
                 <h2 class="">Create Reservation</h2>
 
-<form method="post" class="mt-3">
+<form method="post" class="mt-3" id="reservationForm" onsubmit="return validateForm()">
     <div class="mb-3">
         <label asp-for="Reservation.Room.RoomName" class="form-label">Room Name</label>
-        <select asp-for="Reservation.Room.RoomName" class="form-select" asp-items="Model.Rooms">
+        <select asp-for="Reservation.Room.RoomName" class="form-select" asp-items="Model.Rooms" id="roomName" required>
             <option value="">Select a room</option>
         </select>
     </div>
     <div class="mb-3">
         <label asp-for="Reservation.DateTime" class="form-label">Reservation Date</label>
-        <input asp-for="Reservation.DateTime" class="form-control" class="form-control" type="datetime-local" />
+        <input asp-for="Reservation.DateTime" class="form-control" type="datetime-local" id="reservationDate" required />
     </div>
     <button type="submit" class="btn btn-primary">Add Reservation</button>
 </form>
 </div>
 </div>
 </div>
+
+<script src="~/js/reservation.js" asp-append-version="true"></script>

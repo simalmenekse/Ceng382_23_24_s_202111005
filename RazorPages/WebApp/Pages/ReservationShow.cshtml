@@ -2,6 +2,11 @@
 @model ReservationShowModel
 @{
     ViewData["Title"] = "Reservations";
+
+    // Get the date of the most recent Monday
+    DateTime today = DateTime.Now.Date;
+    int daysToMonday = ((int)DayOfWeek.Monday - (int)today.DayOfWeek - 7) % 7;
+    DateTime startOfWeek = today.AddDays(daysToMonday);
 }
 
 <h2>Reservations</h2><br>
@@ -32,7 +37,7 @@
                 <th>Time</th>
                 @for (var i = 0; i < 7; i++)
                 {
-                    <th>@DateTime.Now.AddDays(i).ToString("dddd")</th>
+                    <th>@startOfWeek.AddDays(i).ToString("dddd")</th>
                 }
             </tr>
         </thead>
@@ -43,7 +48,7 @@
                     <td>@hour:00</td>
                     @for (var day = 0; day < 7; day++)
                     {
-                        var currentDateTime = DateTime.Now.Date.AddDays(day).AddHours(hour);
+                        var currentDateTime = startOfWeek.AddDays(day).AddHours(hour);
                         var reservation = Model.Reservations.FirstOrDefault(r => r.DateTime == currentDateTime);
 
                         <td>
