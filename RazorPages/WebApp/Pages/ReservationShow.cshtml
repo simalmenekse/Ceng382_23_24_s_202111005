@@ -51,7 +51,6 @@
                     {
                         var currentDateTime = startOfWeek.AddDays(day).AddHours(hour);
                         
-                        // Capture the current 'hour' value for use inside the lambda
                         var capturedHour = hour;  
 
                         var reservation = Model.Reservations.FirstOrDefault(r => 

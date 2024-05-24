@@ -14,6 +14,7 @@ namespace WebApp.Pages
 public class RoomsModel : PageModel
 {
     private readonly ApplicationDbContext _dbContext;
+    
 
     public RoomsModel(ApplicationDbContext dbContext)
     {

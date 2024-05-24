@@ -11,10 +11,13 @@ namespace WebApp.Pages
     public class FormPageModel : PageModel
     {
         private readonly ApplicationDbContext _dbContext;
+        private readonly ILogger<FormPageModel> _logger;
 
-        public FormPageModel(ApplicationDbContext dbContext)
+
+        public FormPageModel(ApplicationDbContext dbContext, ILogger<FormPageModel> logger)
         {
             _dbContext = dbContext;
+            _logger = logger;
         }
 
         public IActionResult OnGet()
@@ -31,6 +34,8 @@ namespace WebApp.Pages
 
             _dbContext.Rooms.Add(room);
             _dbContext.SaveChanges();
+
+            _logger.LogInformation($"Room {room.RoomName} added successfully.");
 
             return RedirectToPage("/Index"); 
         }

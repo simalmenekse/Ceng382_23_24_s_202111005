@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\js\\reservation.js",
+      "PackagePath": "staticwebassets\\js\\reservation.js"
+    },
+    {
       "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\js\\rooms.js",
       "PackagePath": "staticwebassets\\js\\rooms.js"
     },
@@ -263,6 +267,10 @@
     {
       "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\pexels-pixabay-289737.jpg",
       "PackagePath": "staticwebassets\\pexels-pixabay-289737.jpg"
+    },
+    {
+      "Id": "C:\\University\\CENG 328 - Web Development\\Ceng_323_23_24_s_202111005\\RazorPages\\WebApp\\wwwroot\\reservation.jpg",
+      "PackagePath": "staticwebassets\\reservation.jpg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.WebApp.Microsoft.AspNetCore.StaticWebAssets.props",
