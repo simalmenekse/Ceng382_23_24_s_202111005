@@ -3,7 +3,6 @@
 @{
     ViewData["Title"] = "Reservations";
 
-    // Get the date of the most recent Monday
     DateTime today = DateTime.Now.Date;
     int daysToMonday = ((int)DayOfWeek.Monday - (int)today.DayOfWeek - 7) % 7;
     DateTime startOfWeek = today.AddDays(daysToMonday);
@@ -26,6 +25,8 @@
         </div>
         <div class="col">
             <button type="submit" class="btn btn-primary">Filter</button>
+                        <a href="/ReservationShow" class="btn btn-secondary ml-2">Remove Filter</a>
+
         </div>
     </div>
 </form>
@@ -42,32 +43,38 @@
             </tr>
         </thead>
         <tbody>
-            @for (var hour = 0; hour < 24; hour++)
+            @for (var hour = 9; hour < 18; hour++) 
             {
                 <tr>
                     <td>@hour:00</td>
                     @for (var day = 0; day < 7; day++)
                     {
                         var currentDateTime = startOfWeek.AddDays(day).AddHours(hour);
-                        var reservation = Model.Reservations.FirstOrDefault(r => r.DateTime == currentDateTime);
+                        
+                        // Capture the current 'hour' value for use inside the lambda
+                        var capturedHour = hour;  
+
+                        var reservation = Model.Reservations.FirstOrDefault(r => 
+                            r.DateTime.Hour == capturedHour && r.DateTime.Date == currentDateTime.Date
+                        );
 
                         <td>
                             @if (reservation != null)
                             {
                                 <div>
-                                    @reservation.Room.RoomName<br />
-                                    @reservation.DateTime.ToString("HH:mm")<br />
-                                    @Model.GetFriendlyName(reservation.ReservedBy)
+                                    <b>Room Name: </b>@reservation.Room.RoomName<br />
+                                    <b>Time: </b>@reservation.DateTime.ToString("HH:mm")<br />
+                                    <b>Reserved By: </b>@Model.GetFriendlyName(reservation.ReservedBy)
                                     <div class="mt-2">
                                         <a href="/Reservations/Edit?id=@reservation.Id" class="btn btn-sm btn-warning float-left">✏ Edit</a>
                                         <form method="post" asp-page-handler="Delete" asp-route-id="@reservation.Id" onsubmit="return confirm('Are you sure you want to delete this reservation?');">
                                             <button type="submit" class="btn btn-sm btn-danger float-left ml-1">❌ Delete</button>
                                         </form>
-                                        <div class="clearfix"></div>
+                                        <div class="clearfix"></div> 
                                     </div>
                                 </div>
                             }
-                        </td>
+                        </td> 
                     }
                 </tr>
             }

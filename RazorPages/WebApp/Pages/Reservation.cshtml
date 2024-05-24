@@ -8,7 +8,7 @@
         <div class="row justify-content-center">
                     <div class="col-md-6"><br>
 
-            <img src="~/pexels-pixabay-289737.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image"
+            <img src="~/reservation.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image"
                 width="700" height="200" loading="lazy">
                 <h2 class="">Create Reservation</h2>
 
@@ -22,6 +22,8 @@
     <div class="mb-3">
         <label asp-for="Reservation.DateTime" class="form-label">Reservation Date</label>
         <input asp-for="Reservation.DateTime" class="form-control" type="datetime-local" id="reservationDate" required />
+                <small id="timeError" class="text-danger" style="display: none;">Reservation time must be between 9 AM and 6 PM.</small>
+
     </div>
     <button type="submit" class="btn btn-primary">Add Reservation</button>
 </form>
