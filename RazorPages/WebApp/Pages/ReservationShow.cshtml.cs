@@ -56,11 +56,15 @@ namespace WebApp.Pages
             }
             if (CapacityFilter.HasValue)
             {
-                query = query.Where(r => r.Room.Capacity >= CapacityFilter.Value);
+                _logger.LogInformation($"Filtering by capacity: {CapacityFilter.Value}");
+
+                query = query.Where(r => r.Room.Capacity == CapacityFilter.Value);
             }
+            
 
             Reservations = await query.ToListAsync();
         }
+
 
         public IActionResult OnGetEdit(int id)
         {
