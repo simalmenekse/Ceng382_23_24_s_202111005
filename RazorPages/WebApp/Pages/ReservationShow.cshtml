@@ -65,7 +65,7 @@
                                     <b>Time: </b>@reservation.DateTime.ToString("HH:mm")<br />
                                     <b>Reserved By: </b>@Model.GetFriendlyName(reservation.ReservedBy)
                                     <div class="mt-2">
-                                        <a href="/Reservations/Edit?id=@reservation.Id" class="btn btn-sm btn-warning float-left">✏ Edit</a>
+                                        <a href="./Edit?id=@reservation.Id" class="btn btn-sm btn-warning float-left">✏ Edit</a>
                                         <form method="post" asp-page-handler="Delete" asp-route-id="@reservation.Id" onsubmit="return confirm('Are you sure you want to delete this reservation?');">
                                             <button type="submit" class="btn btn-sm btn-danger float-left ml-1">❌ Delete</button>
                                         </form>
