@@ -83,8 +83,25 @@ namespace WebApp.Pages
             _context.Reservations.Remove(reservation);
             await _context.SaveChangesAsync();
 
+            string logMessage = $"Reservation with ID {id} deleted successfully.";
+            _logger.LogInformation(logMessage);
+            SaveLogToDatabase(logMessage);
+
             return RedirectToPage();
         }
+
+                private void SaveLogToDatabase(string message)
+        {
+            var logEntry = new LogEntry
+            {
+                Message = message,
+                Timestamp = DateTime.UtcNow
+            };
+
+            _context.LogEntries.Add(logEntry);
+            _context.SaveChanges();
+        }
+
 
         public string GetFriendlyName(string email)
         {

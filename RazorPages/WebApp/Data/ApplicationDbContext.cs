@@ -16,6 +16,12 @@ namespace WebApp.Data
 
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<LogEntry> LogEntries { get; set; }  // Add this line
+        
+                protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
 
         
     }

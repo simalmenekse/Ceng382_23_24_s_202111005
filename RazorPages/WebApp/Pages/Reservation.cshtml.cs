@@ -58,10 +58,23 @@ namespace WebApp.Pages
             _context.Reservations.Add(Reservation);
             await _context.SaveChangesAsync();
 
-                        _logger.LogInformation($"Reservation created successfully by {Reservation.ReservedBy} for room {Reservation.Room.RoomName}.");
-
+            string logMessage = $"Reservation created successfully by {Reservation.ReservedBy} for room {Reservation.Room.RoomName}.";
+            _logger.LogInformation(logMessage);
+            SaveLogToDatabase(logMessage);
 
             return RedirectToPage("./Index");
+        }
+
+         private void SaveLogToDatabase(string message)
+        {
+            var logEntry = new LogEntry
+            {
+                Message = message,
+                Timestamp = DateTime.UtcNow
+            };
+
+            _context.LogEntries.Add(logEntry);
+            _context.SaveChanges();
         }
     }
 }

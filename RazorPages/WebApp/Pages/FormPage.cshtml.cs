@@ -35,9 +35,25 @@ namespace WebApp.Pages
             _dbContext.Rooms.Add(room);
             _dbContext.SaveChanges();
 
+            string logMessage = $"Room {room.RoomName} added successfully.";
+
             _logger.LogInformation($"Room {room.RoomName} added successfully.");
+                        SaveLogToDatabase(logMessage);
+
 
             return RedirectToPage("/Index"); 
+        }
+
+         private void SaveLogToDatabase(string message)
+        {
+            var logEntry = new LogEntry
+            {
+                Message = message,
+                Timestamp = DateTime.UtcNow
+            };
+
+            _dbContext.LogEntries.Add(logEntry);
+            _dbContext.SaveChanges();
         }
     }
 }
